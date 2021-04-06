@@ -1,0 +1,46 @@
+1. API: REST or GQL? (Filtering, Sorting, Pagination) ->  
+2. Schema: ItemsLost and ItemsFound
+
+==========
+3. View all Items: List or Grid view (Card or Table), Map view (KIV)??  We need both Card & Table Grid view
+4. Search / Sort / Pagination Function (Required)
+==========
+
+
+5. Other pages such as About, FAQ (workflow) , Contact (static pages)
+
+==========
+6. User Autehntication (Local Authentication, User ID - email & Pwd) 
+	backend username, email, password
+	frontend, username and email is same 
+	user roles
+		admin, public, moderator
+	user profile
+		landing page preference
+7. Authorization: Public pages and Private pages
+	Create Found Item -> public (to help the public to quickly submit items)
+	Create Lost Item -> Login  (Require contact details)
+	Claim Item -> Login
+	Update Item -> Login (The user who submitted) provided that user has logged in before submission
+	View List of Items (Found & Lost) - public
+	View Details of the item ( Public)
+		show part of the details (need further dicussion on the details)
+		contact, location (require login)
+==========
+
+8. Landing Page  
+	List of Lost & Found items in the last 3 days (default)
+
+==========
+9. Smartness
+	List of Lost Items match with possible found items (smartness)
+10. CRUD Function for Found Items (Thiru)
+==========
+
+11. CRUD Funtion for Users (Tien)
+
+12. Infra - Scaling (vertical & horizontal)
+	(get update from Tam)
+13. Project Report
+	(to be discussed)	
+
