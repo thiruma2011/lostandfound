@@ -1,79 +1,87 @@
-import React, { Component } from "react";
-import axios from 'axios';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import axios from 'axios'
 
 export default class SignUp extends Component {
-    constructor() {
-        super();
-        this.state = {
-            username: '',
-            email: '',
-            password: ''
-        };
+  constructor () {
+    super()
+    this.state = {
+      username: '',
+      email: '',
+      password: ''
+    }
+  }
+
+  onChange (e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  };
+
+  onSubmit (e) {
+    e.preventDefault()
+
+    const data = {
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password
     }
 
-    onChange = e => {
+    axios
+      .post('http://localhost:8082/api/users', data)
+      .then(res => {
         this.setState({
-            [e.target.name]: e.target.value
-        });
-    };
+          username: '',
+          email: '',
+          password: ''
+        })
+        this.props.history.push('/')
+      })
+      .catch(err => {
+        console.log('Error in CreateItem: ' + err.stack)
+      })
+  };
 
-    onSubmit = e => {
-        e.preventDefault();
+  render () {
+    return (
+      <form onSubmit = { this.onSubmit } >
+        <div className = "container" >
+          <div className = "row" >
+            <div className = "col-md-6 m-auto" >
 
-        const data = {
-            username: this.state.username,
-            email: this.state.email,
-            password: this.state.password
-        };
+              <h3 > Sign Up </h3>
 
-        axios
-            .post('http://localhost:8082/api/users', data)
-            .then(res => {
-                this.setState({
-                    username: '',
-                    email: '',
-                    password: ''
-                })
-                this.props.history.push('/');
-            })
-            .catch(err => {
-                console.log("Error in CreateItem!");
-            })
-    };
+              <div className = "form-group" >
+                <label > Name </label>
+                <input type = "text" name = "username" className = "form-control" placeholder = "Name" onChange = { this.onChange } />
+              </div>
 
-    render() {
-        return ( 
-            <form onSubmit = { this.onSubmit } >
-                <div className = "container" >
-                    <div className = "row" >
-                        <div className = "col-md-6 m-auto" >
+              <div className = "form-group" >
+                <label > Login ID / Email address </label>
+                <input type = "email" name = "email" className = "form-control" placeholder = "Enter email" onChange = { this.onChange } />
+              </div>
 
-                            <h3 > Sign Up </h3>
+              <div className = "form-group" >
+                <label > Password </label>
+                <input type = "password" name = "password" className = "form-control" placeholder = "Enter password" onChange = { this.onChange } />
+              </div>
 
-                            <div className = "form-group" >
-                                <label > Name </label>
-                                <input type = "text" name = "username" className = "form-control" placeholder = "Name" onChange = { this.onChange } /> 
-                            </div>
+              <button type = "submit" className = "btn btn-primary btn-block" > Sign Up </button>
+              <p className = "forgot-password text-right" >
+                Already registered
+                < a href = "./login" > sign in ? </ a >
+              </p >
+            </div>
+          </div >
+        </div>
+      </form >
+    )
+  }
+}
 
-                            <div className = "form-group" >
-                                <label > Login ID / Email address </label> 
-                                <input type = "email" name = "email" className = "form-control" placeholder = "Enter email" onChange = { this.onChange } /> 
-                            </div>
-
-                            <div className = "form-group" >
-                                <label > Password </label> 
-                                <input type = "password" name = "password" className = "form-control" placeholder = "Enter password" onChange = { this.onChange } /> 
-                            </div>
-
-                            <button type = "submit" className = "btn btn-primary btn-block" > Sign Up </button> 
-                            <p className = "forgot-password text-right" >
-                                Already registered 
-                                < a href = "./login" > sign in ? </ a > 
-                            </p >
-                        </div> 
-                    </div > 
-                </div>
-            </form >
-        );
-    }
+SignUp.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired,
+  match: PropTypes.any
 }

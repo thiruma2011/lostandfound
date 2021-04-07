@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import logo from '../../images/logo.gif'
+// import logo from '../../images/logo.gif'
 
 const HomePage = () => (
     <Fragment >

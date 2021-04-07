@@ -23,7 +23,7 @@ class ShowItemList extends Component {
         })
       })
       .catch(err => {
-        console.log('Error from ShowItemList')
+        console.log('Error from ShowItemList: ' + err.stack)
       })
   };
 

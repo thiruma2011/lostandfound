@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 // import '../App.css';
 import '../styles/bootstrap.min.css'
@@ -45,7 +46,7 @@ class showItemDetails extends Component {
         })
       })
       .catch(err => {
-        console.log('Error from ShowItemDetails')
+        console.log('Error from ShowItemDetails: ' + err.stack)
       })
   };
 
@@ -56,12 +57,12 @@ class showItemDetails extends Component {
         this.props.history.push('/')
       })
       .catch(err => {
-        console.log('Error form ShowItemDetails_deleteClick')
+        console.log('Error form ShowItemDetails_deleteClick:' + err.stack)
       })
   };
 
   render () {
-    const item = this.state.item
+    // const item = this.state.item
     const Item =
       <div className = "container" >
         <div className = "col-md-8 m-auto" >
@@ -138,9 +139,16 @@ class showItemDetails extends Component {
         { Item }
       </div>
       </div>
-      </div >
+      </div>
     )
   }
+}
+
+showItemDetails.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired,
+  match: PropTypes.any
 }
 
 export default showItemDetails

@@ -26,7 +26,7 @@ class LFNav extends Component {
   }
 
   render () {
-    const { isExpanded } = this.state
+    // const { isExpanded } = this.state
 
     return (
       <Navbar collapseOnSelect expand = "lg" bg = "dark" variant = "dark" >
