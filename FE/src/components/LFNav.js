@@ -28,70 +28,38 @@ class LFNav extends Component {
   render () {
     const { isExpanded } = this.state
 
-    return (<
-            Navbar collapseOnSelect expand = "lg"
-            bg = "dark"
-            variant = "dark" >
-            <
-            Navbar.Brand href = "./" >
-            <
-            img width = "100px"
-            height = "30px"
-            className = "img-responsive"
-            src = { logo }
-            alt = "logo" / >
-            <
-            logo alt = ""
-            width = "30"
-            height = "30"
-            className = "d-inline-block align-top" /
-            >
+    return (
+      <Navbar collapseOnSelect expand = "lg" bg = "dark" variant = "dark" >
+        <Navbar.Brand href = "./" >
+          <img width = "100px" height = "30px" className = "img-responsive" src = { logo } alt = "logo" />
+          <logo alt = "" width = "30" height = "30" className = "d-inline-block align-top" />
+          helpmelah.com
+        </Navbar.Brand>
 
-            helpmelah.com <
-            /Navbar.Brand> <
-            Navbar.Toggle aria-controls = "responsive-navbar-nav" / >
-            <
-            Navbar.Collapse id = "responsive-navbar-nav" >
-            <
-            Nav className = "mr-auto" >
+        <Navbar.Toggle aria-controls = "responsive-navbar-nav" />
 
-            <
-            NavDropdown title = "Add Item"
-            id = "collasible-nav-dropdown" >
-            <
-            NavDropdown.Item href = "./createitemfound" > Create Item Found < /NavDropdown.Item>  <
-            NavDropdown.Item href = "./createitemlost" >
-            Create item Lost <
-            NavDropdown.Item href = "./createitem" > Create Item < /NavDropdown.Item>
+        <Navbar.Collapse id = "responsive-navbar-nav" >
+          <Nav className = "mr-auto" >
+            <NavDropdown title = "Add Item" id = "collasible-nav-dropdown" >
+              <NavDropdown.Item href = "./createitemfound" > Create Item Found </NavDropdown.Item>
+              <NavDropdown.Item href = "./createitemlost" > Create item Lost </NavDropdown.Item>
+              <NavDropdown.Item href = "./createitem" > Create Item </NavDropdown.Item>
+            </NavDropdown >
 
-            <
-            /NavDropdown.Item>  < /
-            NavDropdown >
-            <
-            NavDropdown title = "View Items"
-            id = "collasible-nav-dropdown" >
-            <
-            NavDropdown.Item href = "./viewitemslost" > View Lost Item < /NavDropdown.Item> <
-            NavDropdown.Item href = "./viewitemsfound" >
-            View Found items <
-            /NavDropdown.Item> <
-            NavDropdown.Item href = "./viewitem" > View My Items < /NavDropdown.Item>  < /
-            NavDropdown > <
-            /Nav> <
-            Nav >
-
-            <
-            Nav.Link href = "./login" > Login < /Nav.Link> <
-            Nav.Link href = "./faq" >
-            FAQ <
-            /Nav.Link>
-		<Nav.Link href = "./about" >
-            About <
-            /Nav.Link>  <
-            Nav.Link href = "./contact" > Contact < /Nav.Link>  < /
-            Nav > <
-            /Navbar.Collapse> < /
-            Navbar >
+            <NavDropdown title = "View Items" id = "collasible-nav-dropdown" >
+              <NavDropdown.Item href = "./viewitemslost" > View Lost Item </NavDropdown.Item>
+              <NavDropdown.Item href = "./viewitemsfound" > View Found items </NavDropdown.Item>
+              <NavDropdown.Item href = "./viewitem" > View My Items </NavDropdown.Item>
+            </NavDropdown >
+          </Nav>
+          <Nav >
+            <Nav.Link href = "./login" > Login </Nav.Link>
+            <Nav.Link href = "./faq" > FAQ </Nav.Link>
+            <Nav.Link href = "./about" > About </Nav.Link>
+            <Nav.Link href = "./contact" > Contact </Nav.Link>
+          </Nav >
+        </Navbar.Collapse>
+      </Navbar >
     )
   }
 }

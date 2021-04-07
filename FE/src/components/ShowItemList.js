@@ -44,44 +44,26 @@ class ShowItemList extends Component {
 
       )
     }
-    return (< div className = "ShowItemList" >
+    return (
+      <div className = "ShowItemList" >
+        <div className = "container" >
+          <div className = "row" >
+            <div className = "col-md-12" >
+              <br />
+              <h2 className = "display-4 text-center" > Items List </h2>
+            </div>
 
-            <
-            div className = "container" >
-            <
-            div className = "row" >
-            <
-            div className = "col-md-12" >
-            <
-            br / >
-            <
-            h2 className = "display-4 text-center" > Items List < /h2> < /
-            div >
+            <div className = "col-md-11" >
+              <Link to = "/createitem" className = "btn btn-outline-warning float-right" > +Add New Item </Link>
+              <br />
+              <br />
+              <hr />
+            </div>
+        </div>
 
-            <
-            div className = "col-md-11" >
-            <
-            Link to = "/createitem"
-            className = "btn btn-outline-warning float-right" >
-            +Add New Item <
-            /Link> <
-            br / >
-            <
-            br / >
-            <
-            hr / >
-            <
-            /div>
-
-            <
-            /div>
-
-            <
-            div className = "list" > { itemList } <
-            /div> < /
-            div > <
-            /div>
-
+        <div className = "list" > { itemList } </div>
+        </div >
+      </div>
     )
   }
 }

@@ -42,67 +42,38 @@ export default class SignUp extends Component {
     };
 
     render() {
-        return ( <
-            form onSubmit = { this.onSubmit } >
+        return ( 
+            <form onSubmit = { this.onSubmit } >
+                <div className = "container" >
+                    <div className = "row" >
+                        <div className = "col-md-6 m-auto" >
 
-            <
-            div className = "container" >
-            <
-            div className = "row" >
-            <
-            div className = "col-md-6 m-auto" >
+                            <h3 > Sign Up </h3>
 
+                            <div className = "form-group" >
+                                <label > Name </label>
+                                <input type = "text" name = "username" className = "form-control" placeholder = "Name" onChange = { this.onChange } /> 
+                            </div>
 
-            <
-            h3 > Sign Up < /h3>
+                            <div className = "form-group" >
+                                <label > Login ID / Email address </label> 
+                                <input type = "email" name = "email" className = "form-control" placeholder = "Enter email" onChange = { this.onChange } /> 
+                            </div>
 
-            <
-            div className = "form-group" >
-            <
-            label > Name < /label> <
-            input type = "text"
-            name = "username"
-            className = "form-control"
-            placeholder = "Name"
-            onChange = { this.onChange }
-            / > <
-            /div>
+                            <div className = "form-group" >
+                                <label > Password </label> 
+                                <input type = "password" name = "password" className = "form-control" placeholder = "Enter password" onChange = { this.onChange } /> 
+                            </div>
 
-            <
-            div className = "form-group" >
-            <
-            label > Login ID / Email address < /label> <
-            input type = "email"
-            name = "email"
-            className = "form-control"
-            placeholder = "Enter email"
-            onChange = { this.onChange }
-            / > <
-            /div>
-
-            <
-            div className = "form-group" >
-            <
-            label > Password < /label> <
-            input type = "password"
-            name = "password"
-            className = "form-control"
-            placeholder = "Enter password"
-            onChange = { this.onChange }
-            / > <
-            /div>
-
-            <
-            button type = "submit"
-            className = "btn btn-primary btn-block" > Sign Up < /button> <
-            p className = "forgot-password text-right" >
-            Already registered < a href = "./login" > sign in ? < / a > < /
-            p >
-            <
-            /div> < /
-            div > <
-            /div>< /
-            form >
+                            <button type = "submit" className = "btn btn-primary btn-block" > Sign Up </button> 
+                            <p className = "forgot-password text-right" >
+                                Already registered 
+                                < a href = "./login" > sign in ? </ a > 
+                            </p >
+                        </div> 
+                    </div > 
+                </div>
+            </form >
         );
     }
 }

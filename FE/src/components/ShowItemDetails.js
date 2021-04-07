@@ -62,179 +62,83 @@ class showItemDetails extends Component {
 
   render () {
     const item = this.state.item
-    const Item = <
-            div className = "container" >
-            <
-            div className = "col-md-8 m-auto" >
-            <
-            div className = 'form-group' >
-            <
-            label htmlFor = "title" > Title < /label> <
-        input type = 'text'
-        placeholder = 'Title'
-        name = 'title'
-        readOnly
-        className = 'form-control'
-        value = { this.state.title }
-        /> < /
-        div >
-            <
-            br / >
-            <
-            div className = 'form-group' >
-            <
-            label htmlFor = "category" > Category < /label> <
-        input type = 'text'
-        placeholder = 'Category'
-        name = 'category'
-        readOnly
-        className = 'form-control'
-        value = { this.state.category }
-        /> < /
-        div > <
-            br / >
+    const Item =
+      <div className = "container" >
+        <div className = "col-md-8 m-auto" >
+          <div className = 'form-group' >
+            <label htmlFor = "title" > Title </label>
+            <input type = 'text' placeholder = 'Title' name = 'title' readOnly className = 'form-control' value = { this.state.title } />
+          </div>
+          <br />
 
-            <
-            div className = 'form-group' >
-            <
-            label htmlFor = "description" > Description < /label> <
-        input type = 'text'
-        placeholder = 'Description'
-        name = 'description'
-        readOnly
-        className = 'form-control'
-        value = { this.state.description }
-        /> < /
-        div >
+          <div className = 'form-group' >
+            <label htmlFor = "category" > Category </label>
+            <input type = 'text' placeholder = 'Category' name = 'category' readOnly className = 'form-control' value = { this.state.category } />
+          </div >
+          <br />
 
-            <
-            div className = 'form-group' >
-            <
-            label htmlFor = "status" > Status < /label> <
-        input type = 'text'
-        placeholder = 'Status'
-        name = 'status'
-        readOnly
-        className = 'form-control'
-        value = { this.state.status }
-        /> < /
-        div >
+          <div className = 'form-group' >
+            <label htmlFor = "description" > Description </label>
+            <input type = 'text' placeholder = 'Description' name = 'description' readOnly className = 'form-control' value = { this.state.description } />
+          </div >
 
-            <
-            div className = 'form-group' >
-            <
-            label htmlFor = "timestamp" > Date < /label> <
-        input type = 'date'
-        name = 'timestamp'
-        readOnly
-        className = 'form-control'
-        value = { this.state.timestamp }
-        /> < /
-        div >
+          <div className = 'form-group' >
+            <label htmlFor = "status" > Status </label>
+            <input type = 'text' placeholder = 'Status' name = 'status' readOnly className = 'form-control' value = { this.state.status } />
+          </div >
 
-            <
-            div className = 'form-group' >
-            <
-            label htmlFor = "location" > Location < /label> <
-        input type = 'text'
-        placeholder = 'Location'
-        name = 'location'
-        readOnly
-        className = 'form-control'
-        value = { this.state.location }
-        /> < /
-        div > <
-            br / >
-            <
-            div className = 'form-group' >
-            <
-            label htmlFor = "image" > Image < /label> <
-        input type = 'file'
-        name = 'image'
-        readOnly
-        className = 'form-control'
-        value = { this.state.image }
-        /> < /
-        div > <
-            br / >
-            <
-            br / >
+          <div className = 'form-group' >
+            <label htmlFor = "timestamp" > Date </label>
+            <input type = 'date' name = 'timestamp' readOnly className = 'form-control' value = { this.state.timestamp } />
+          </div >
 
-            <
-            div
-        div className = 'form-group' >
+          <div className = 'form-group' >
+            <label htmlFor = "location" > Location </label>
+            <input type = 'text' placeholder = 'Location' name = 'location' readOnly className = 'form-control' value = { this.state.location } />
+          </div >
+          <br />
 
-            <
-            Link to = { `/edititem/${this.state.id}` }
-        className = "btn btn-outline-info btn-lg btn-block" >
-            Edit Item <
-            /Link>
+          <div className = 'form-group' >
+            <label htmlFor = "image" > Image </label>
+            <input type = 'file' name = 'image' readOnly className = 'form-control' value = { this.state.image } />
+          </div >
+          <br />
 
-        <
-        div className = "row" >
+          <br />
 
-            <
-            div className = "col-md-12 m-auto" >
+          <div className = 'form-group' >
+            <Link to = { `/edititem/${this.state.id}` } className = "btn btn-outline-info btn-lg btn-block" >Edit Item </Link>
+            <div className = "row" >
+              <div className = "col-md-12 m-auto" >
+                <button type = "button" className = "btn btn-outline-danger btn-lg btn-block" onClick = { this.onDeleteClick.bind(this, this.state.item._id) } > Delete Item </button>
+              </div>
+            </div>
+          </div>
 
-            <
-            button type = "button"
-        className = "btn btn-outline-danger btn-lg btn-block"
-        onClick = { this.onDeleteClick.bind(this, this.state.item._id) } > Delete Item < /button>
+        </div>
+      </div>
 
-        <
-        /
-        div >
-
-            <
-            /
-        div >
-
-            <
-            /
-        div >
-
-            <
-            /
-        div >
-
-            <
-            /div>
-
-    return (<
-            div className = "ShowItemDetails" >
-            <
-            div className = "container" >
-
-            <
-            div className = "row" >
-            <
-            div className = "col-md-10 m-auto" >
-            <
-            br / > < br / >
-            <
-            Link to = "/"
-            className = "btn btn-outline-warning float-left" >
-            Show Item List <
-            /Link> < /
-            div > <
-            br / >
-            <
-            div className = "col-md-8 m-auto" >
-            <
-            h1 className = "display-4 text-center" > Item 's Record</h1> <
-            p className = "lead text-center" >
-            View Item 's Info < /
-            p > <
-            hr / >
-            <
-            /div> < /
-            div > <
-            div > { Item } <
-            /div>
-
-            <
-            /div> < /
-            div >
+    return (
+      <div className = "ShowItemDetails" >
+        <div className = "container" >
+          <div className = "row" >
+            <div className = "col-md-10 m-auto" >
+              <br />
+              <br />
+              <Link to = "/" className = "btn btn-outline-warning float-left" > Show Item List </Link>
+            </div >
+            <br />
+            <div className = "col-md-8 m-auto" >
+              <h1 className = "display-4 text-center" > Item&apos;s Record</h1>
+              <p className = "lead text-center" > View Item&apos;s Info </p >
+              <hr />
+            </div>
+          </div >
+        <div >
+        { Item }
+      </div>
+      </div>
+      </div >
     )
   }
 }

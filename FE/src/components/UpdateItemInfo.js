@@ -81,136 +81,66 @@ class UpdateItemInfo extends Component {
 
 
     render() {
-        return ( <
-            div className = "UpdateItemInfo" >
-            <
-            div className = "container" >
-            <
-            div className = "row" >
-            <
-            div className = "col-md-8 m-auto" >
-            <
-            br / >
-            <
-            Link to = "/"
-            className = "btn btn-outline-warning float-left" >
-            Show Item List <
-            /Link> < /
-            div > <
-            div className = "col-md-8 m-auto" >
-            <
-            h1 className = "display-4 text-center" > Edit Item < /h1> <
-            p className = "lead text-center" >
-            Update Item 's Info < /
-            p > <
-            /div> < /
-            div >
+        return ( 
+            <div className = "UpdateItemInfo" >
+                <div className = "container" >
+                    <div className = "row" >
+                        <div className = "col-md-8 m-auto" >
+                            <br />
+                            <Link to = "/" className = "btn btn-outline-warning float-left" > Show Item List </Link> 
+                        </div > 
+                        <div className = "col-md-8 m-auto" >
+                            <h1 className = "display-4 text-center" > Edit Item </h1> 
+                            <p className = "lead text-center" > Update Item 's Info </p > 
+                        </div> 
+                    </div >
 
-            <
-            div className = "col-md-8 m-auto" >
-            <
-            form noValidate onSubmit = { this.onSubmit } >
-            <
-            div className = 'form-group' >
-            <
-            label htmlFor = "title" > Title < /label> <
-            input type = 'text'
-            placeholder = 'Title'
-            name = 'title'
-            className = 'form-control'
-            value = { this.state.title }
-            onChange = { this.onChange }
-            /> < /
-            div > <
-            br / >
-            <
-            div className = 'form-group' >
-            <
-            label htmlFor = "category" > Category < /label> <
-            input type = 'text'
-            placeholder = 'Category'
-            name = 'category'
-            className = 'form-control'
-            value = { this.state.category }
-            onChange = { this.onChange }
-            /> < /
-            div > <
-            br / >
+                    <div className = "col-md-8 m-auto" >
+                        <form noValidate onSubmit = { this.onSubmit } >
+                            <div className = 'form-group' >
+                                <label htmlFor = "title" > Title </label> 
+                                <input type = 'text' placeholder = 'Title' name = 'title' className = 'form-control' value = { this.state.title } onChange = { this.onChange } /> 
+                            </div > 
+                            <br />
 
-            <
-            div className = 'form-group' >
-            <
-            label htmlFor = "description" > Description < /label> <
-            input type = 'text'
-            placeholder = 'Description'
-            name = 'description'
-            className = 'form-control'
-            value = { this.state.description }
-            onChange = { this.onChange }
-            /> < /
-            div >
+                            <div className = 'form-group' >
+                                <label htmlFor = "category" > Category </label> 
+                                <input type = 'text' placeholder = 'Category' name = 'category' className = 'form-control' value = { this.state.category } onChange = { this.onChange } /> 
+                            </div > 
+                            <br />
 
-            <
-            div className = 'form-group' >
-            <
-            label htmlFor = "status" > Status < /label> <
-            input type = 'text'
-            placeholder = 'Status'
-            name = 'status'
-            className = 'form-control'
-            value = { this.state.status }
-            onChange = { this.onChange }
-            /> < /
-            div >
+                            <div className = 'form-group' >
+                                <label htmlFor = "description" > Description </label> 
+                                <input type = 'text' placeholder = 'Description' name = 'description' className = 'form-control' value = { this.state.description } onChange = { this.onChange } /> 
+                            </div >
 
-            <
-            div className = 'form-group' >
-            <
-            label htmlFor = "timestamp" > Date < /label> <
-            input type = 'date'
-            placeholder = 'date'
-            name = 'timestamp'
-            className = 'form-control'
-            value = { this.state.timestamp }
-            onChange = { this.onChange }
-            /> < /
-            div >
+                            <div className = 'form-group' >
+                                <label htmlFor = "status" > Status </label> 
+                                <input type = 'text' placeholder = 'Status' name = 'status' className = 'form-control' value = { this.state.status } onChange = { this.onChange } /> 
+                            </div >
 
-            <
-            div className = 'form-group' >
-            <
-            label htmlFor = "location" > Location < /label> <
-            input type = 'text'
-            placeholder = 'Location'
-            name = 'location'
-            className = 'form-control'
-            value = { this.state.location }
-            onChange = { this.onChange }
-            /> < /
-            div > <
-            br / >
-            <
-            div className = 'form-group' >
-            <
-            label htmlFor = "image" > Image < /label> <
-            input type = 'file'
-            name = 'image'
-            className = 'form-control'
-            value = { this.state.image }
-            onChange = { this.onChange }
-            /> < /
-            div > <
-            br / >
+                            <div className = 'form-group' >
+                                <label htmlFor = "timestamp" > Date </label> 
+                                <input type = 'date' placeholder = 'date' name = 'timestamp' className = 'form-control' value = { this.state.timestamp } onChange = { this.onChange } /> 
+                            </div >
 
-            <
-            button type = "submit"
-            className = "btn btn-outline-info btn-lg btn-block" > Update Item < /button> < /
-            form > <
-            /div>
+                            <div className = 'form-group' >
+                                <label htmlFor = "location" > Location </label> 
+                                <input type = 'text' placeholder = 'Location' name = 'location' className = 'form-control' value = { this.state.location } onChange = { this.onChange } /> 
+                            </div > 
+                            <br />
 
-            <
-            /div> < /
-            div >
+                            <div className = 'form-group' >
+                                <label htmlFor = "image" > Image </label>
+                                <input type = 'file' name = 'image' className = 'form-control' value = { this.state.image } onChange = { this.onChange } /> 
+                            </div > 
+                            <br />
+
+                            <button type = "submit" className = "btn btn-outline-info btn-lg btn-block" > Update Item </button> 
+                        </form > 
+                    </div>
+                </div> 
+            </div >
         );
     }
 }

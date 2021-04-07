@@ -105,152 +105,65 @@ class CreateItem extends Component {
     };
 
     render() {
-        return ( <
-            div className = "CreateItem" >
-            <
-            div className = "container" >
-            <
-            div className = "row" >
-            <
-            div className = "col-md-8 m-auto" >
-            <
-            br / >
-            <
-            Link to = "/"
-            className = "btn btn-warning float-left" >
-            Show Item List <
-            /Link> < /
-            div > <
-            div className = "col-md-8 m-auto" >
-            <
-            h1 className = "display-4 text-center" > Add Item < /h1> <
-            p className = "lead text-center" >
-            Create new item <
-            /p>
+        return ( 
+            <div className = "CreateItem" >
+                <div className = "container" >
+                    <div className = "row" >
+                        <div className = "col-md-8 m-auto" >
+                            <br />
+                            <Link to = "/" className = "btn btn-warning float-left" >Show Item List </Link> 
+                        </div > 
 
-            <
-            form noValidate onSubmit = { this.onSubmit } >
-            <
-            div className = 'form-group' >
-            <
-            input type = 'text'
-            placeholder = 'Title'
-            name = 'title'
-            className = 'form-control'
-            value = { this.state.title }
-            onChange = { this.onChange }
-            /> < /
-            div > <
-            br / >
-            <
-            div className = 'form-group' >
+                        <div className = "col-md-8 m-auto" >
+                            <h1 className = "display-4 text-center" >Add Item </h1>
+                            <p className = "lead text-center" >Create new item </p>
 
-            <
-            input type = 'text'
-            placeholder = 'Category'
-            name = 'category'
-            className = 'form-control'
-            value = { this.state.category }
-            onChange = { this.onChange }
-            />
+                            <form noValidate onSubmit = { this.onSubmit } >
+                                <div className = 'form-group' >
+                                    <input type = 'text' placeholder = 'Title' name = 'title' className = 'form-control' value = { this.state.title } onChange = { this.onChange } /> 
+                                </div > 
+                                <br />
 
-            <
-            /
-            div > <
-            br / >
+                                <div className = 'form-group' >
+                                    <input type = 'text' placeholder = 'Category' name = 'category' className = 'form-control' value = { this.state.category } onChange = { this.onChange } />
+                                </div > 
+                                <br />
 
-            <
-            div className = 'form-group' >
-            <
-            input type = 'text'
-            placeholder = 'Description'
-            name = 'description'
-            className = 'form-control'
-            value = { this.state.description }
-            onChange = { this.onChange }
-            /> < /
-            div >
-            <
-            br / >
+                                <div className = 'form-group' >
+                                    <input type = 'text' placeholder = 'Description' name = 'description' className = 'form-control' value = { this.state.description } onChange = { this.onChange } /> 
+                                </div >
+                                <br />
 
-            <
-            div className = 'form-group' >
-            <
-            input type = 'text'
-            placeholder = 'Status'
-            name = 'status'
-            className = 'form-control'
-            value = { this.state.status }
-            onChange = { this.onChange }
-            /> < /
-            div >
-            <
-            br / >
+                                <div className = 'form-group' >
+                                    <input type = 'text' placeholder = 'Status' name = 'status' className = 'form-control' value = { this.state.status } onChange = { this.onChange } /> 
+                                </div >
+                                <br />
 
-            <
-            div className = 'form-group' >
-            <
-            input type = 'date'
-            placeholder = 'date'
-            name = 'timestamp'
-            className = 'form-control'
-            value = { this.state.timestamp }
-            onChange = { this.onChange }
-            /> < /
-            div >
-            <
-            br / >
-            <
-            div className = 'form-group' >
-            <
-            input type = 'text'
-            placeholder = 'Location'
-            name = 'location'
-            className = 'form-control'
-            value = { this.state.location }
-            onChange = { this.onChange }
-            /> < /
-            div >
-            <
-            br / >
-            <
-            div className = 'form-group' >
-            <
-            input type = 'file'
-            name = 'image'
-            className = 'form-control'
-            value = { this.state.image }
-            onChange = { this.onChange }
-            /> < /
-            div >
+                                <div className = 'form-group' >
+                                    <input type = 'date' placeholder = 'date' name = 'timestamp' className = 'form-control' value = { this.state.timestamp } onChange = { this.onChange } /> 
+                                </div >
+                                <br />
 
+                                <div className = 'form-group' >
+                                    <input type = 'text' placeholder = 'Location' name = 'location' className = 'form-control' value = { this.state.location } onChange = { this.onChange } /> 
+                                </div >
+                                <br />
 
+                                <div className = 'form-group' >
+                                    <input type = 'file' name = 'image' className = 'form-control' value = { this.state.image } onChange = { this.onChange } /> 
+                                </div >
+                                <br />
 
-            <
-            br / >
-            <
-            div className = 'form-group' >
-            <
-            input type = 'text'
-            placeholder = 'Comments'
-            name = 'comments'
-            className = 'form-control'
-            value = { this.state.comments }
-            onChange = { this.onChange }
-            /> < /
-            div >
+                                <div className = 'form-group' >
+                                    <input type = 'text' placeholder = 'Comments' name = 'comments' className = 'form-control' value = { this.state.comments } onChange = { this.onChange } /> 
+                                </div >
 
-
-            <
-            input type = "submit"
-            className = "btn btn-outline-warning btn-block mt-4" /
-            >
-            <
-            /form> < /
-            div > <
-            /div> < /
-            div > <
-            /div>
+                                <input type = "submit" className = "btn btn-outline-warning btn-block mt-4" />
+                            </form> 
+                        </div > 
+                    </div> 
+                </div > 
+            </div>
         );
     }
 }

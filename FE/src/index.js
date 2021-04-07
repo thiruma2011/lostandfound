@@ -35,69 +35,33 @@ import ShowItemList from './components/ShowItemList'
 import ShowItemDetails from './components/ShowItemDetails'
 import UpdateItemInfo from './components/UpdateItemInfo'
 
-const App = () => (< div >
-    <
-    LFNav / >
-    <
-    div className = "container" >
-    <
-    Route exact = { true }
-    path = "/"
-    component = { Home }
-    />  <
-    Route exaxt path = "/about"
-    component = { About }
-    /> <
-    Route exact path = "/contact"
-    component = { Contact }
-    />  <
-    Route exact path = "/faq"
-    component = { FAQ }
-    /> <
-    Route exact path = "/login"
-    component = { Login }
-    /><
-    Route exact path = "/signup"
-    component = { Signup }
-    /> <
-    Route exact path = "/createitemfound"
-    component = { CreateItemFound }
-    /> <
-    Route exact path = "/createitemlost"
-    component = { CreateItemLost }
-    /> <
-    Route exact path = "/createitem"
-    component = { CreateItem }
-    /> <
-    Route exact path = "/showitemlist"
-    component = { ViewItem }
-    /> <
-    Route exact path = "/showitemlist"
-    component = { ViewItemsLost }
-    /> <
-    Route exact path = "/showitemlist"
-    component = { ViewItemsFound }
-    />  <
-    Route exact path = '/'
-    component = { ShowItemList }
-    /> <
-    Route exact path = '/showitemlist'
-    component = { ShowItemList }
-    />  <
-    Route path = '/edititem/:id'
-    component = { UpdateItemInfo }
-    /> <
-    Route path = '/showitem/:id'
-    component = { ShowItemDetails }
-    /> < /
-    div > < /div>
+const App = () => (
+    < div >
+        <LFNav />
+        <div className = "container" >
+            <Route exact = { true } path = "/" component = { Home } />
+            <Route exaxt path = "/about" component = { About } />
+            <Route exact path = "/contact" component = { Contact } />
+            <Route exact path = "/faq" component = { FAQ } />
+            <Route exact path = "/login" component = { Login } />
+            <Route exact path = "/signup" component = { Signup } />
+            <Route exact path = "/createitemfound" component = { CreateItemFound } />
+            <Route exact path = "/createitemlost" component = { CreateItemLost } />
+            <Route exact path = "/createitem" component = { CreateItem } />
+            <Route exact path = "/showitemlist" component = { ViewItem } />
+            <Route exact path = "/showitemlist" component = { ViewItemsLost } />
+            <Route exact path = "/showitemlist" component = { ViewItemsFound } />
+            <Route exact path = '/' component = { ShowItemList } />
+            <Route exact path = '/showitemlist' component = { ShowItemList } />
+            <Route path = '/edititem/:id' component = { UpdateItemInfo } />
+            <Route path = '/showitem/:id' component = { ShowItemDetails } />
+        </div >
+    </div>
 )
 
-render(<
-    Router >
-    <
-    App / >
-    <
-    /Router>,
-document.getElementById('root')
+render(
+    <Router >
+       <App />
+    </Router>,
+    document.getElementById('root')
 )
