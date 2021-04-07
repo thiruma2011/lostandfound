@@ -1,21 +1,21 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react'
 
-const FAQPage = () => ( <
+const FAQPage = () => (<
     Fragment >
     <
     h2 > Frequently Asked Questions < /h2> <
-    div class = "content" >
+    div className = "content" >
     <
     p > < /p> < /
     div > <
     h5 >
-    What is helpmelah.com ? < /h5   > <
-    p > to be updated. < /p>  
+    What is helpmelah.com ? < /h5 > <
+    p > to be updated. < /p>
 
     <
     h5 >
     Where do I handover the item I found ? < /h5> <
-    div class = "content" >
+    div className = "content" >
     <
     p > to be updated. < /p> < /
     div >
@@ -23,18 +23,14 @@ const FAQPage = () => ( <
     <
     h5 >
     Where do I collect the item I lost ? < /h5> <
-    div class = "content" >
+    div className = "content" >
     <
     p > to be updated. < /p> < /
     div >
 
-
-
-
-
     <
     /
     Fragment >
-);
+)
 
-export default FAQPage;
+export default FAQPage

@@ -1,13 +1,10 @@
-import React, { Fragment } from "react";
-import logo from "../../images/logo.gif";
+import React, { Fragment } from 'react'
+import logo from '../../images/logo.gif'
 
-const AboutPage = () => ( <
+const AboutPage = () => (<
     Fragment >
     <
     div >
-
-
-
 
     <
     p align = "center" >
@@ -21,7 +18,7 @@ const AboutPage = () => ( <
     /img> </p > <
     /
     div > <
-    h1 align = "center" > Welcome to helpmelah.com < /h1>  
+    h1 align = "center" > Welcome to helpmelah.com < /h1>
 
     <
     p > < /p> <
@@ -42,6 +39,6 @@ const AboutPage = () => ( <
 
     <
     /Fragment>
-);
+)
 
-export default AboutPage;
+export default AboutPage

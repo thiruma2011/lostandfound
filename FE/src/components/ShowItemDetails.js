@@ -1,73 +1,69 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-//import '../App.css';
-import "../styles/bootstrap.min.css";
-import axios from 'axios';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+// import '../App.css';
+import '../styles/bootstrap.min.css'
+import axios from 'axios'
 
 class showItemDetails extends Component {
-    constructor(props) {
-        super(props);
-        console.log("Print id 1: ");
+  constructor (props) {
+    super(props)
+    console.log('Print id 1: ')
 
-        this.state = {
-            id: '',
-            title: '',
-            category: '',
-            description: '',
-            status: '',
-            timestamp: '',
-            location: '',
-            image: '',
-            keyword: '',
-            comments: '',
-            votes: '',
-            item: {}
-        };
+    this.state = {
+      id: '',
+      title: '',
+      category: '',
+      description: '',
+      status: '',
+      timestamp: '',
+      location: '',
+      image: '',
+      keyword: '',
+      comments: '',
+      votes: '',
+      item: {}
     }
+  }
 
-    componentDidMount() {
+  componentDidMount () {
+    axios
+      .get('http://localhost:8082/api/items/' + this.props.match.params.id)
+      .then(res => {
+        // console.log("Print-showItemDetails-API-response: " + res.data);
+        this.setState({
+          id: res.data._id,
+          title: res.data.title,
+          category: res.data.category,
+          description: res.data.description,
+          status: res.data.status,
+          timestamp: res.data.timestamp,
+          location: res.data.location,
+          image: res.data.image,
+          keyword: res.data.keyword,
+          comments: res.data.comments,
+          votes: res.data.votes
+        })
+      })
+      .catch(err => {
+        console.log('Error from ShowItemDetails')
+      })
+  };
 
-        axios
-            .get('http://localhost:8082/api/items/' + this.props.match.params.id)
-            .then(res => {
-                // console.log("Print-showItemDetails-API-response: " + res.data);
-                this.setState({
-                    id: res.data._id,
-                    title: res.data.title,
-                    category: res.data.category,
-                    description: res.data.description,
-                    status: res.data.status,
-                    timestamp: res.data.timestamp,
-                    location: res.data.location,
-                    image: res.data.image,
-                    keyword: res.data.keyword,
-                    comments: res.data.comments,
-                    votes: res.data.votes
-                })
-            })
-            .catch(err => {
-                console.log("Error from ShowItemDetails");
-            })
-    };
+  onDeleteClick (id) {
+    axios
+      .delete('http://localhost:8082/api/items/' + this.state.id)
+      .then(res => {
+        this.props.history.push('/')
+      })
+      .catch(err => {
+        console.log('Error form ShowItemDetails_deleteClick')
+      })
+  };
 
-    onDeleteClick(id) {
-
-        axios
-            .delete('http://localhost:8082/api/items/' + this.state.id)
-            .then(res => {
-                this.props.history.push("/");
-            })
-            .catch(err => {
-                console.log("Error form ShowItemDetails_deleteClick");
-            })
-    };
-
-
-    render() {
-
-        const item = this.state.item;
-        let Item = <
-            div class = "container" >
+  render () {
+    const item = this.state.item
+    const Item = <
+            div className = "container" >
             <
             div className = "col-md-8 m-auto" >
             <
@@ -174,11 +170,8 @@ class showItemDetails extends Component {
             Edit Item <
             /Link>
 
-
         <
         div className = "row" >
-
-
 
             <
             div className = "col-md-12 m-auto" >
@@ -205,10 +198,9 @@ class showItemDetails extends Component {
         div >
 
             <
-            /div> 
+            /div>
 
-
-        return ( <
+    return (<
             div className = "ShowItemDetails" >
             <
             div className = "container" >
@@ -240,16 +232,11 @@ class showItemDetails extends Component {
             div > { Item } <
             /div>
 
-
-
             <
             /div> < /
             div >
-        );
-
-
-
-    }
+    )
+  }
 }
 
-export default showItemDetails;
+export default showItemDetails

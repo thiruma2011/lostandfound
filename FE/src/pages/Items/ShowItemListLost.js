@@ -1,14 +1,14 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react'
 
-const showItemListLost = () => ( <
+const showItemListLost = () => (<
     Fragment >
     <
-    div class = "signup-form" >
+    div className = "signup-form" >
     <
     p > under construction < /p> < /
     div >
     <
     /Fragment>
-);
+)
 
-export default showItemListLost;
+export default showItemListLost

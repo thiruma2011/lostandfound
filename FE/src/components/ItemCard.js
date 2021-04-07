@@ -1,20 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../App.css';
-import '../styles/bootstrap.min.css';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import '../App.css'
+import '../styles/bootstrap.min.css'
 
-import logo from "../images/logo.gif";
-
+import logo from '../images/logo.gif'
 
 const ItemCard = (props) => {
-    const item = props.item;
-    return ( <
-        div class = "card mb-4" >
+  const item = props.item
+  return (<
+        div className = "card mb-4" >
         <
         img src = ""
         alt = "" / >
         <
-        div class = "card-body" >
+        div className = "card-body" >
         <
         h2 >
         <
@@ -22,20 +21,18 @@ const ItemCard = (props) => {
         /Link> < /
         h2 >
 
-
         <
         p > { item.description } < /p > <
-        p > { item.status } < /p> 
+        p > { item.status } < /p>
 
         <
-        p > { item.timestamp } < /p>  
+        p > { item.timestamp } < /p>
 
         <
         /
         div > <
         /div>
-    )
-};
+  )
+}
 
-
-export default ItemCard;
+export default ItemCard

@@ -1,32 +1,34 @@
-import React, { Component } from "react";
-//import { NavLink, Link } from "react-router-dom";
+import React, { Component } from 'react'
+// import { NavLink, Link } from "react-router-dom";
 
 // import { BurgerIcon } from './'
-//import styled from "styled-components";
-import "../styles/styles.css";
-import "../styles/bootstrap.min.css";
+// import styled from "styled-components";
+import '../styles/styles.css'
+import '../styles/bootstrap.min.css'
 
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
-import logo from "../images/logo.gif";
-//import styled from "styled-components";
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import logo from '../images/logo.gif'
+// import styled from "styled-components";
 
 class LFNav extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isExpanded: false
-        };
+  constructor (props) {
+    super(props)
+    this.state = {
+      isExpanded: false
     }
-    handleToggle(e) {
-        e.preventDefault();
-        this.setState({
-            isExpanded: !this.state.isExpanded
-        });
-    }
-    render() {
-        const { isExpanded } = this.state;
+  }
 
-        return ( <
+  handleToggle (e) {
+    e.preventDefault()
+    this.setState({
+      isExpanded: !this.state.isExpanded
+    })
+  }
+
+  render () {
+    const { isExpanded } = this.state
+
+    return (<
             Navbar collapseOnSelect expand = "lg"
             bg = "dark"
             variant = "dark" >
@@ -60,7 +62,7 @@ class LFNav extends Component {
             NavDropdown.Item href = "./createitemfound" > Create Item Found < /NavDropdown.Item>  <
             NavDropdown.Item href = "./createitemlost" >
             Create item Lost <
-            NavDropdown.Item href = "./createitem" > Create Item < /NavDropdown.Item> 
+            NavDropdown.Item href = "./createitem" > Create Item < /NavDropdown.Item>
 
             <
             /NavDropdown.Item>  < /
@@ -82,7 +84,7 @@ class LFNav extends Component {
             Nav.Link href = "./login" > Login < /Nav.Link> <
             Nav.Link href = "./faq" >
             FAQ <
-            /Nav.Link>  
+            /Nav.Link>
 		<Nav.Link href = "./about" >
             About <
             /Nav.Link>  <
@@ -90,7 +92,7 @@ class LFNav extends Component {
             Nav > <
             /Navbar.Collapse> < /
             Navbar >
-        );
-    }
+    )
+  }
 }
-export default LFNav;
+export default LFNav

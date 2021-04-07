@@ -1,55 +1,50 @@
-import React, { Component } from 'react';
-import '../App.css';
-import '../styles/bootstrap.min.css';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import ItemCard from './ItemCard';
+import React, { Component } from 'react'
+import '../App.css'
+import '../styles/bootstrap.min.css'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
+import ItemCard from './ItemCard'
 
 class ShowItemList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            items: []
-        };
+  constructor (props) {
+    super(props)
+    this.state = {
+      items: []
     }
+  }
 
-    componentDidMount() {
-        axios
-            .get('http://localhost:8082/api/items')
-            .then(res => {
-                this.setState({
-                    items: res.data
+  componentDidMount () {
+    axios
+      .get('http://localhost:8082/api/items')
+      .then(res => {
+        this.setState({
+          items: res.data
 
-                })
-            })
-            .catch(err => {
-                console.log('Error from ShowItemList');
-            })
-    };
+        })
+      })
+      .catch(err => {
+        console.log('Error from ShowItemList')
+      })
+  };
 
+  render () {
+    const items = this.state.items
+    console.log('PrintItem: ' + items)
+    let itemList
 
-    render() {
-        const items = this.state.items;
-        console.log("PrintItem: " + items);
-        let itemList;
-
-        if (!items) {
-            itemList = "there is no item recored!";
-        } else {
-            itemList = items.map((item, k) =>
+    if (!items) {
+      itemList = 'there is no item recored!'
+    } else {
+      itemList = items.map((item, k) =>
 
                 <
                 ItemCard item = { item }
                 key = { k }
                 />
 
-            );
-        }
-        return ( < div className = "ShowItemList" >
-
-
-
-
+      )
+    }
+    return (< div className = "ShowItemList" >
 
             <
             div className = "container" >
@@ -87,8 +82,8 @@ class ShowItemList extends Component {
             div > <
             /div>
 
-        );
-    }
+    )
+  }
 }
 
-export default ShowItemList;
+export default ShowItemList

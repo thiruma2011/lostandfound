@@ -1,46 +1,41 @@
-import React, { Component } from 'react';
-import { render } from "react-dom";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './App.css';
-import "./index.css";
+import React, { Component } from 'react'
+import { render } from 'react-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import './App.css'
+import './index.css'
 
-//import logo from "../../images/logo.gif";
+// import logo from "../../images/logo.gif";
 
-import "./styles/bootstrap.min.css";
+import './styles/bootstrap.min.css'
 // NAVIGATION
-import LFNav from "./components/LFNav";
+import LFNav from './components/LFNav'
 // PAGES
-import Home from "./pages/Home/HomePage";
-//import AddItem from "./pages/AddItem/AddItemPage";
-//import MyData from "./pages/MydataPage/MydataPage";
-//import AllLostItems from ".pages/AllLostItems/AllLostItemsPage";
-//import AllLostItems from "./pages/AllLostItems/AllLostItemsPage";
-//import AllFoundItems from "./pages/AllFoundItems/AllFoundItemsPage";
-//import MyItems from "./pages/MyItems/MyItemsPage";
+import Home from './pages/Home/HomePage'
+// import AddItem from "./pages/AddItem/AddItemPage";
+// import MyData from "./pages/MydataPage/MydataPage";
+// import AllLostItems from ".pages/AllLostItems/AllLostItemsPage";
+// import AllLostItems from "./pages/AllLostItems/AllLostItemsPage";
+// import AllFoundItems from "./pages/AllFoundItems/AllFoundItemsPage";
+// import MyItems from "./pages/MyItems/MyItemsPage";
 
-import Login from "./pages/Login/LoginPage";
-import Signup from "./pages/Signup/SignupPage";
-import About from "./pages/About/AboutPage";
-import Contact from "./pages/Contact/ContactPage";
-import FAQ from "./pages/FAQ/FAQPage";
+import Login from './pages/Login/LoginPage'
+import Signup from './pages/Signup/SignupPage'
+import About from './pages/About/AboutPage'
+import Contact from './pages/Contact/ContactPage'
+import FAQ from './pages/FAQ/FAQPage'
 
+import CreateItemFound from './pages/Items/CreateItemFound'
+import CreateItemLost from './pages/Items/CreateItemLost'
+import ViewItem from './pages/Items/ShowItemDetails'
+import ViewItemsLost from './pages/Items/ShowItemListLost'
+import ViewItemsFound from './pages/Items/ShowItemListFound'
 
-import CreateItemFound from "./pages/Items/CreateItemFound";
-import CreateItemLost from "./pages/Items/CreateItemLost";
-import ViewItem from "./pages/Items/ShowItemDetails";
-import ViewItemsLost from "./pages/Items/ShowItemListLost";
-import ViewItemsFound from "./pages/Items/ShowItemListFound";
+import CreateItem from './components/CreateItem'
+import ShowItemList from './components/ShowItemList'
+import ShowItemDetails from './components/ShowItemDetails'
+import UpdateItemInfo from './components/UpdateItemInfo'
 
-
-
-
-import CreateItem from './components/CreateItem';
-import ShowItemList from './components/ShowItemList';
-import ShowItemDetails from './components/ShowItemDetails';
-import UpdateItemInfo from './components/UpdateItemInfo';
-
-
-const App = () => ( < div >
+const App = () => (< div >
     <
     LFNav / >
     <
@@ -96,13 +91,13 @@ const App = () => ( < div >
     component = { ShowItemDetails }
     /> < /
     div > < /div>
-);
+)
 
-render( <
+render(<
     Router >
     <
     App / >
     <
     /Router>,
-    document.getElementById("root")
-);
+document.getElementById('root')
+)

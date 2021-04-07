@@ -1,15 +1,15 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react'
 
-const ContactPage = () => ( <
+const ContactPage = () => (<
     Fragment >
     <
-    div class = "signup-form" >
+    div className = "signup-form" >
     <
     p > under construction < /p> <
     /
     div >
     <
     /Fragment>
-);
+)
 
-export default ContactPage;
+export default ContactPage
