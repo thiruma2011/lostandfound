@@ -1,7 +1,9 @@
 // default.json
 
 {
-    "mongoURI": "mongodb://localhost:27017/db01"
+    //"mongoURI": "mongodb://localhost:27017/db01"
+
+    "mongoURI": "mongodb+srv://dbuser:P@ssw0rd@cluster1.ebiee.mongodb.net/db01?retryWrites=true&w=majority"
 
     //"mongoURI": "mongodb+srv://dbuser:*****@cluster1.ebiee.mongodb.net/db01?authSource=admin&replicaSet=atlas-z3irrt-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true"
     //"mongoURI": "mongodb://localhost:27017/my_local_db?readPreference=primary&appname=MongoDB%20Compass&ssl=false"
