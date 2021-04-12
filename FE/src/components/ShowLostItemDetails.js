@@ -32,7 +32,7 @@ class ShowLostItemDetails extends Component {
       .then(res => {
         // console.log("Print-showItemDetails-API-response: " + res.data);
         this.setState({
-          id: res.data._id,
+          id: res.data.id,
           title: res.data.title,
           category: res.data.category,
           description: res.data.description,
@@ -111,7 +111,7 @@ class ShowLostItemDetails extends Component {
             <Link to = { `/edititem/${this.state.id}` } className = "btn btn-outline-info btn-lg btn-block" >Edit Item </Link>
             <div className = "row" >
               <div className = "col-md-12 m-auto" >
-                <button type = "button" className = "btn btn-outline-danger btn-lg btn-block" onClick = { this.onDeleteClick.bind(this, this.state.item._id) } > Delete Item </button>
+                <button type = "button" className = "btn btn-outline-danger btn-lg btn-block" onClick = { this.onDeleteClick.bind(this, this.state.item.id) } > Delete Item </button>
               </div>
             </div>
           </div>

@@ -86,7 +86,7 @@ class CreateLostItem extends Component {
     }
 
     axios
-      .post('http://localhost:8082/api/found-item', data)
+      .post('http://localhost:8082/api/create-found-item', data)
       .then(res => {
         this.setState({
           title: '',

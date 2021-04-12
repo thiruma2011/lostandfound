@@ -71,7 +71,7 @@ class UpdateLostItemInfo extends Component {
     }
 
     axios
-      .put('http://localhost:8082/api/lost-item/' + this.props.match.params.id, data)
+      .put('http://localhost:8082/api/update-lost-item/' + this.props.match.params.id, data)
       .then(res => {
         this.props.history.push('/showlostitem/' + this.props.match.params.id)
       })

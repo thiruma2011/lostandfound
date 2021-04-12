@@ -28,7 +28,7 @@ export default class SignUp extends Component {
     }
 
     axios
-      .post('http://localhost:8082/api/users', data)
+      .post('http://localhost:8082/api/create-user', data)
       .then(res => {
         this.setState({
           username: '',

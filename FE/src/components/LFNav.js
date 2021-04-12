@@ -30,7 +30,7 @@ class LFNav extends Component {
 
     return (
       <Navbar collapseOnSelect expand = "lg" bg = "dark" variant = "dark" >
-        <Navbar.Brand href = "./" >
+        <Navbar.Brand href = "/" >
           <img width = "100px" height = "30px" className = "img-responsive" src = { logo } alt = "logo" />
           <logo alt = "" width = "30" height = "30" className = "d-inline-block align-top" />
           helpmelah.com
