@@ -41,15 +41,13 @@ class LFNav extends Component {
         <Navbar.Collapse id = "responsive-navbar-nav" >
           <Nav className = "mr-auto" >
             <NavDropdown title = "Add Item" id = "collasible-nav-dropdown" >
-              <NavDropdown.Item href = "./createitemfound" > Create Item Found </NavDropdown.Item>
-              <NavDropdown.Item href = "./createitemlost" > Create item Lost </NavDropdown.Item>
-              <NavDropdown.Item href = "./createitem" > Create Item </NavDropdown.Item>
+              <NavDropdown.Item href = "./createfounditem" > Create Item Found </NavDropdown.Item>
+              <NavDropdown.Item href = "./createlostitem" > Create item Lost </NavDropdown.Item>
             </NavDropdown >
 
             <NavDropdown title = "View Items" id = "collasible-nav-dropdown" >
-              <NavDropdown.Item href = "./viewitemslost" > View Lost Item </NavDropdown.Item>
-              <NavDropdown.Item href = "./viewitemsfound" > View Found items </NavDropdown.Item>
-              <NavDropdown.Item href = "./viewitem" > View My Items </NavDropdown.Item>
+              <NavDropdown.Item href = "./showfounditemlist" > View Found items </NavDropdown.Item>
+              <NavDropdown.Item href = "./showlostitemlist" > View Lost Item </NavDropdown.Item>
             </NavDropdown >
           </Nav>
           <Nav >

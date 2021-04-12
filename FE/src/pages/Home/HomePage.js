@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import Button from 'react-bootstrap/Button'
 // import logo from '../../images/logo.gif'
 
 const HomePage = () => (
@@ -6,11 +7,11 @@ const HomePage = () => (
         <h1 align = "center" > Welcome to helpmelah.com </h1>
 
         <div className = "container" align = "center" >
-            <button type = "button" className = "btn btn-warning" > Lost Items </button>
-            <button type = "button" className = "btn btn-primary" > Found Items </button>
-            <button type = "button" className = "btn btn-secondary" > My Items </button>
-            <button type = "button" className = "btn btn-success" > Add Lost Item </button>
-            <button type = "button" className = "btn btn-info" > Add Found Item </button>
+            <Button href="/showlostitemlist" variant = "warning" > Lost Items </Button>
+            <Button href="/showfounditemlist" variant = "primary" > Found Items </Button>
+            <Button href="/showitemlist" variant = "secondary" > My Items </Button>
+            <Button href="/createlostitem" variant = "success" > Add Lost Item </Button>
+            <Button href="/createfounditem" variant = "info" > Add Found Item </Button>
         </div >
     </Fragment>
 )

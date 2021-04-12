@@ -3,58 +3,53 @@ import { render } from 'react-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css'
 import './index.css'
+import './styles/bootstrap.min.css'
 
 // import logo from "../../images/logo.gif";
 
-import './styles/bootstrap.min.css'
 // NAVIGATION
 import LFNav from './components/LFNav'
+
 // PAGES
 import Home from './pages/Home/HomePage'
-// import AddItem from "./pages/AddItem/AddItemPage";
-// import MyData from "./pages/MydataPage/MydataPage";
-// import AllLostItems from ".pages/AllLostItems/AllLostItemsPage";
-// import AllLostItems from "./pages/AllLostItems/AllLostItemsPage";
-// import AllFoundItems from "./pages/AllFoundItems/AllFoundItemsPage";
-// import MyItems from "./pages/MyItems/MyItemsPage";
-
-import Login from './pages/Login/LoginPage'
-import Signup from './pages/Signup/SignupPage'
 import About from './pages/About/AboutPage'
 import Contact from './pages/Contact/ContactPage'
 import FAQ from './pages/FAQ/FAQPage'
+import Login from './pages/Login/LoginPage'
+import Signup from './pages/Signup/SignupPage'
 
-import CreateItemFound from './pages/Items/CreateItemFound'
-import CreateItemLost from './pages/Items/CreateItemLost'
-import ViewItem from './pages/Items/ShowItemDetails'
-import ViewItemsLost from './pages/Items/ShowItemListLost'
-import ViewItemsFound from './pages/Items/ShowItemListFound'
+// FOUND ITEM
+import ShowFoundItemList from './components/ShowFoundItemList'
+import ShowFoundItemDetails from './components/ShowFoundItemDetails'
+import CreateFoundItem from './components/CreateFoundItem'
+import UpdateFoundItemInfo from './components/UpdateFoundItemInfo'
 
-import CreateItem from './components/CreateItem'
-import ShowItemList from './components/ShowItemList'
-import ShowItemDetails from './components/ShowItemDetails'
-import UpdateItemInfo from './components/UpdateItemInfo'
+// LOST ITEM
+import ShowLostItemList from './components/ShowLostItemList'
+import ShowLostItemDetails from './components/ShowLostItemDetails'
+import CreateLostItem from './components/CreateLostItem'
+import UpdateLostItemInfo from './components/UpdateLostItemInfo'
 
 const App = () => (
   <div>
     <LFNav />
     <div className = "container" >
-      <Route exact = { true } path = "/" component = { Home } />
+      <Route exact path = "/" component = { Home } />
       <Route exaxt path = "/about" component = { About } />
       <Route exact path = "/contact" component = { Contact } />
       <Route exact path = "/faq" component = { FAQ } />
       <Route exact path = "/login" component = { Login } />
       <Route exact path = "/signup" component = { Signup } />
-      <Route exact path = "/createitemfound" component = { CreateItemFound } />
-      <Route exact path = "/createitemlost" component = { CreateItemLost } />
-      <Route exact path = "/createitem" component = { CreateItem } />
-      <Route exact path = "/showitemlist" component = { ViewItem } />
-      <Route exact path = "/showitemlist" component = { ViewItemsLost } />
-      <Route exact path = "/showitemlist" component = { ViewItemsFound } />
-      <Route exact path = '/' component = { ShowItemList } />
-      <Route exact path = '/showitemlist' component = { ShowItemList } />
-      <Route path = '/edititem/:id' component = { UpdateItemInfo } />
-      <Route path = '/showitem/:id' component = { ShowItemDetails } />
+
+      <Route exact path = "/showfounditemlist" component = { ShowFoundItemList } />
+      <Route exact path = '/showfounditem/:id' component = { ShowFoundItemDetails } />
+      <Route exact path = "/createfounditem" component = { CreateFoundItem } />
+      <Route exact path = '/editfounditem/:id' component = { UpdateFoundItemInfo } />
+
+      <Route exact path = "/showlostitemlist" component = { ShowLostItemList } />
+      <Route exact path = '/showlostitem/:id' component = { ShowLostItemDetails } />
+      <Route exact path = "/createlostitem" component = { CreateLostItem } />
+      <Route exact path = '/editlostitem/:id' component = { UpdateLostItemInfo } />
     </div >
   </div>
 )
