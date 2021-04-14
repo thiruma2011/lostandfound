@@ -7,6 +7,7 @@ import '../styles/styles.css'
 import '../styles/bootstrap.min.css'
 
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import Image from 'react-bootstrap/Image'
 import logo from '../images/logo.gif'
 // import styled from "styled-components";
 
@@ -31,9 +32,7 @@ class LFNav extends Component {
     return (
       <Navbar collapseOnSelect expand = "lg" bg = "dark" variant = "dark" >
         <Navbar.Brand href = "/" >
-          <img width = "100px" height = "30px" className = "img-responsive" src = { logo } alt = "logo" />
-          <logo alt = "" width = "30" height = "30" className = "d-inline-block align-top" />
-          helpmelah.com
+          <Image src={logo} height="30" roundedCircle /> help me lah!
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls = "responsive-navbar-nav" />
