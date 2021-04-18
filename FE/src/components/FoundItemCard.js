@@ -6,7 +6,7 @@ import '../styles/bootstrap.min.css'
 
 // import logo from '../images/logo.gif'
 
-const LostItemCard = (props) => {
+const FoundItemCard = (props) => {
   const item = props.item
   return (
     <div className = "card mb-4" >
@@ -21,7 +21,7 @@ const LostItemCard = (props) => {
   )
 }
 
-LostItemCard.propTypes = {
+FoundItemCard.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string,
     title: PropTypes.string,
@@ -31,4 +31,4 @@ LostItemCard.propTypes = {
   }).isRequired
 }
 
-export default LostItemCard
+export default FoundItemCard
