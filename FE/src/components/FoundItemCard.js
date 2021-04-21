@@ -9,7 +9,7 @@ import '../styles/bootstrap.min.css'
 
 // import logo from '../images/logo.gif'
 
-const LostItemCard = (props) => {
+const FoundItemCard = (props) => {
   const item = props.item
   return (
     <Card style={{ width: '18rem' }}>
@@ -27,7 +27,7 @@ const LostItemCard = (props) => {
   )
 }
 
-LostItemCard.propTypes = {
+FoundItemCard.propTypes = {
   item: PropTypes.shape({
     _id: PropTypes.string,
     title: PropTypes.string,
@@ -38,4 +38,4 @@ LostItemCard.propTypes = {
   }).isRequired
 }
 
-export default LostItemCard
+export default FoundItemCard

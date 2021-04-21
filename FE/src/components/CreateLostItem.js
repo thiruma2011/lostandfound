@@ -101,7 +101,7 @@ class CreateLostItem extends Component {
         this.props.history.push('/showlostitemlist')
       })
       .catch(err => {
-        console.log('Error in CreateItem: ' + err.stack)
+        console.log('Error in CreateLostItem: ' + err.stack)
       })
   };
 
