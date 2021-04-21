@@ -3,9 +3,9 @@ import '../App.css'
 import '../styles/bootstrap.min.css'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import LostItemCard from './LostItemCard'
+import FoundItemCard from './FoundItemCard'
 
-class ShowLostItemList extends Component {
+class ShowFoundItemList extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -16,7 +16,7 @@ class ShowLostItemList extends Component {
 
   componentDidMount () {
     axios
-      .get('http://localhost:8082/api/lostitems')
+      .get('http://localhost:8082/api/founditems')
       .then(res => {
         this.setState({
           items: res.data
@@ -24,7 +24,7 @@ class ShowLostItemList extends Component {
         })
       })
       .catch(err => {
-        console.log('Error from ShowlostItemList: ' + err.stack)
+        console.log('Error from ShowFoundItemList: ' + err.stack)
       })
   };
 
@@ -53,24 +53,24 @@ class ShowLostItemList extends Component {
     itemList = mitems.map((item, k) =>
 
                 <
-                LostItemCard item = { item }
+                FoundItemCard item = { item }
                 key = { k }
                 />
 
     )
     return (
-      <div className = "ShowLostItemList" >
+      <div className = "ShowFoundItemList" >
         <div className = "container" >
           <div className = "row" >
             <div className = "col-md-12" >
               <br />
-              <h2 className = "display-4 text-center" > Lost Items List </h2>
+              <h2 className = "display-4 text-center" > Found Items List </h2>
             </div>
             <div>
              <input type="text" placeholder="Keyword search" onChange={(e) => this.searchSpace(e)} />
 
             <div className = "col-md-11" >
-              <Link to = "/createlostitem" className = "btn btn-outline-warning float-right" > +Add New Lost Item </Link>
+              <Link to = "/createfounditem" className = "btn btn-outline-warning float-right" > +Add New Found Item </Link>
               <br />
               <br />
               <hr />
@@ -80,11 +80,10 @@ class ShowLostItemList extends Component {
         </div>
 
         <div className = "list" > { itemList } </div>
-        <h6> Number of Items {this.state.items.length} </h6>
         </div >
       </div>
     )
   }
 }
 
-export default ShowLostItemList
+export default ShowFoundItemList

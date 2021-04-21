@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 // import '../App.css';
 import '../styles/bootstrap.min.css'
 import axios from 'axios'
+import moment from 'moment'
 
 class ShowFoundItemDetails extends Component {
   constructor (props) {
     super(props)
+
     console.log('Print id 1: ')
 
     this.state = {
@@ -27,22 +29,23 @@ class ShowFoundItemDetails extends Component {
   }
 
   componentDidMount () {
+    // const timestamp1 =`` new Date()
     axios
-      .get('http://localhost:8082/api/found-item/' + this.props.match.params.id)
+      .get('http://localhost:8082/api/founditems/' + this.props.match.params.id)
       .then(res => {
         // console.log("Print-showItemDetails-API-response: " + res.data);
         this.setState({
-          id: res.data.id,
+          id: res.data._id,
           title: res.data.title,
           category: res.data.category,
           description: res.data.description,
           status: res.data.status,
-          timestamp: res.data.timestamp,
           location: res.data.location,
-          image: res.data.image,
+          image: res.data.images,
           keyword: res.data.keyword,
           comments: res.data.comments,
-          votes: res.data.votes
+          votes: res.data.votes,
+          timestamp: moment(res.data.timestamp).format('YYYY-MM-DD')
         })
       })
       .catch(err => {
@@ -52,9 +55,9 @@ class ShowFoundItemDetails extends Component {
 
   onDeleteClick (id) {
     axios
-      .delete('http://localhost:8082/api/delete-found-item/' + this.state.id)
+      .delete('http://localhost:8082/api/founditems/' + this.state.id)
       .then(res => {
-        this.props.history.push('/')
+        this.props.history.push('/showfounditemlist')
       })
       .catch(err => {
         console.log('Error form ShowItemDetails_deleteClick:' + err.stack)
@@ -90,7 +93,7 @@ class ShowFoundItemDetails extends Component {
 
           <div className = 'form-group' >
             <label htmlFor = "timestamp" > Date </label>
-            <input type = 'date' name = 'timestamp' readOnly className = 'form-control' value = { this.state.timestamp } />
+            <input type = 'date' name = 'date' readOnly className = 'form-control' value = { this.state.timestamp } />
           </div >
 
           <div className = 'form-group' >
@@ -101,7 +104,8 @@ class ShowFoundItemDetails extends Component {
 
           <div className = 'form-group' >
             <label htmlFor = "image" > Image </label>
-            <input type = 'file' name = 'image' readOnly className = 'form-control' value = { this.state.image } />
+            <input type = 'file' name = 'image' readOnly className = 'form-control' />
+            <img width='200' height='200' src={ this.state.image }/>
           </div >
           <br />
 
@@ -126,7 +130,7 @@ class ShowFoundItemDetails extends Component {
             <div className = "col-md-10 m-auto" >
               <br />
               <br />
-              <Link to = "/" className = "btn btn-outline-warning float-left" > Show Item List </Link>
+              <Link to = "/showfounditemlist" className = "btn btn-outline-warning float-left" > Show Found Item List </Link>
             </div >
             <br />
             <div className = "col-md-8 m-auto" >

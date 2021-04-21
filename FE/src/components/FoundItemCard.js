@@ -1,5 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+// import Container from 'react-bootstrap/Container'
+import { Card } from 'react-bootstrap'
+
 import { Link } from 'react-router-dom'
 import '../App.css'
 import '../styles/bootstrap.min.css'
@@ -9,23 +12,27 @@ import '../styles/bootstrap.min.css'
 const LostItemCard = (props) => {
   const item = props.item
   return (
-    <div className = "card mb-4" >
-      <img src = "" alt = "" />
-      <div className = "card-body" >
-        <h2><Link to = { `/showfounditem/${item.id}` } > { item.title } </Link> </h2>
-        <p> { item.description } </p>
-        <p> { item.status } </p>
-        <p> { item.timestamp } </p>
-      </div>
-    </div>
+    <Card style={{ width: '18rem' }}>
+    <Card.Img variant="top" src= { item.images } />
+    <Card.Body>
+    <Card.Title> <h4><Link to = { `/showfounditem/${item._id}` } > { item.title } </Link> </h4> </Card.Title>
+    <Card.Text>
+    {item.description}
+    </Card.Text>
+    </Card.Body>
+    <Card.Body>
+    <Card.Link href={ '/showlostitemstable/' }> Possible Matching Items</Card.Link>
+    </Card.Body>
+</Card>
   )
 }
 
 LostItemCard.propTypes = {
   item: PropTypes.shape({
-    id: PropTypes.string,
+    _id: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
+    images: PropTypes.string,
     status: PropTypes.string,
     timestamp: PropTypes.timestamp
   }).isRequired

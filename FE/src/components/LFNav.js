@@ -47,6 +47,7 @@ class LFNav extends Component {
             <NavDropdown title = "View Items" id = "collasible-nav-dropdown" >
               <NavDropdown.Item href = "./showfounditemlist" > View Found items </NavDropdown.Item>
               <NavDropdown.Item href = "./showlostitemlist" > View Lost Item </NavDropdown.Item>
+              <NavDropdown.Item href = "./myitemslist" > My items </NavDropdown.Item>
             </NavDropdown >
           </Nav>
           <Nav >

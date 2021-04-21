@@ -10,24 +10,26 @@ const LostItemCard = (props) => {
   const item = props.item
   return (
     <div className = "card mb-4" >
-      <img src = "" alt = "" />
+      <img src = {item.images} alt = "" />
       <div className = "card-body" >
-        <h2><Link to = { `/showlostitem/${item.id}` } > { item.title } </Link> </h2>
+        <h4><Link to = { `/showlostitem/${item._id}` } > { item.title } </Link> </h4>
         <p> { item.description } </p>
         <p> { item.status } </p>
         <p> { item.timestamp } </p>
       </div>
+      <h6><Link to = { '/showfounditemstable/' } > Possible Matching items </Link></h6>
     </div>
   )
 }
 
 LostItemCard.propTypes = {
   item: PropTypes.shape({
-    id: PropTypes.string,
+    _id: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
     status: PropTypes.string,
-    timestamp: PropTypes.timestamp
+    timestamp: PropTypes.timestamp,
+    images: PropTypes.string
   }).isRequired
 }
 

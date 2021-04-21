@@ -23,12 +23,17 @@ import ShowFoundItemList from './components/ShowFoundItemList'
 import ShowFoundItemDetails from './components/ShowFoundItemDetails'
 import CreateFoundItem from './components/CreateFoundItem'
 import UpdateFoundItemInfo from './components/UpdateFoundItemInfo'
+import ShowFoundItemsTable from './components/ShowFoundItemsTable'
 
 // LOST ITEM
 import ShowLostItemList from './components/ShowLostItemList'
 import ShowLostItemDetails from './components/ShowLostItemDetails'
 import CreateLostItem from './components/CreateLostItem'
 import UpdateLostItemInfo from './components/UpdateLostItemInfo'
+import ShowLostItemsTable from './components/ShowLostItemsTable'
+
+// MY ITEM
+// import MyItemsList from './components/ShowFoundItemsTable'
 
 const App = () => (
   <div>
@@ -45,11 +50,13 @@ const App = () => (
       <Route exact path = '/showfounditem/:id' component = { ShowFoundItemDetails } />
       <Route exact path = "/createfounditem" component = { CreateFoundItem } />
       <Route exact path = '/editfounditem/:id' component = { UpdateFoundItemInfo } />
+      <Route exact path = '/showfounditemstable' component = { ShowFoundItemsTable } />
 
       <Route exact path = "/showlostitemlist" component = { ShowLostItemList } />
       <Route exact path = '/showlostitem/:id' component = { ShowLostItemDetails } />
       <Route exact path = "/createlostitem" component = { CreateLostItem } />
       <Route exact path = '/editlostitem/:id' component = { UpdateLostItemInfo } />
+      <Route exact path = '/showlostitemstable' component = { ShowLostItemsTable } />
     </div >
   </div>
 )

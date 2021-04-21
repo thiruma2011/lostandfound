@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import '../App.css'
+import moment from 'moment'
 
 class UpdateFoundItemInfo extends Component {
   constructor (props) {
@@ -14,18 +15,19 @@ class UpdateFoundItemInfo extends Component {
       status: '',
       timestamp: '',
       location: '',
-      image: '',
+      images: '',
       keyword: '',
       comments: '',
       votes: ''
-
     }
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   componentDidMount () {
     // console.log("Print id: " + this.props.match.params.id);
     axios
-      .get('http://localhost:8082/api/found-item/' + this.props.match.params.id)
+      .get('http://localhost:8082/api/founditems/' + this.props.match.params.id)
       .then(res => {
         // this.setState({...this.state, item: res.data})
         this.setState({
@@ -33,9 +35,9 @@ class UpdateFoundItemInfo extends Component {
           category: res.data.category,
           description: res.data.description,
           status: res.data.status,
-          timestamp: res.data.timestamp,
+          timestamp: moment(res.data.timestamp).format('YYYY-MM-DD'),
           location: res.data.location,
-          image: res.data.image,
+          images: res.data.images,
           keyword: res.data.keyword,
           comments: res.data.comments,
           votes: res.data.votes
@@ -61,19 +63,20 @@ class UpdateFoundItemInfo extends Component {
       category: this.state.category,
       description: this.state.description,
       status: this.state.status,
-      timestamp: this.state.timestamp
-      //    location: this.data.location,
-      //   image: this.data.image,
-      // keyword: this.data.keyword,
-      // comments: this.data.comments,
-      // votes: this.data.votes
+      timestamp: this.state.timestamp,
+      location: this.state.location,
+      images: this.state.images
+      // keyword: this.state.keyword,
+      // comments: this.state.comments,
+      // votes: this.state.votes
 
     }
 
     axios
-      .put('http://localhost:8082/api/update-found-item/' + this.props.match.params.id, data)
+      .put('http://localhost:8082/api/founditems/' + this.props.match.params.id, data)
       .then(res => {
-        this.props.history.push('/showfounditem/' + this.props.match.params.id)
+        this.props.history.push('/showfounditemlist')
+        // this.props.history.push('/showfounditem/' + this.props.match.params.id)
       })
       .catch(err => {
         console.log('Error in UpdateFoundItemInfo: ' + err.stack)
@@ -132,7 +135,7 @@ class UpdateFoundItemInfo extends Component {
 
               <div className = 'form-group' >
                 <label htmlFor = "image" > Image </label>
-                <input type = 'file' name = 'image' className = 'form-control' value = { this.state.image } onChange = { this.onChange } />
+                <input type = 'file' name = 'image' className = 'form-control' value = { this.state.images } onChange = { this.onChange } />
               </div >
               <br />
 

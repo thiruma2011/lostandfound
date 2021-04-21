@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 // import '../App.css';
 import '../styles/bootstrap.min.css'
 import axios from 'axios'
+import moment from 'moment'
 
 class ShowLostItemDetails extends Component {
   constructor (props) {
@@ -28,16 +29,16 @@ class ShowLostItemDetails extends Component {
 
   componentDidMount () {
     axios
-      .get('http://localhost:8082/api/lost-item/' + this.props.match.params.id)
+      .get('http://localhost:8082/api/lostitems/' + this.props.match.params.id)
       .then(res => {
         // console.log("Print-showItemDetails-API-response: " + res.data);
         this.setState({
-          id: res.data.id,
+          id: res.data._id,
           title: res.data.title,
           category: res.data.category,
           description: res.data.description,
           status: res.data.status,
-          timestamp: res.data.timestamp,
+          timestamp: moment(res.data.timestamp).format('YYYY-MM-DD'),
           location: res.data.location,
           image: res.data.image,
           keyword: res.data.keyword,
@@ -52,9 +53,9 @@ class ShowLostItemDetails extends Component {
 
   onDeleteClick (id) {
     axios
-      .delete('http://localhost:8082/api/delete-lost-item/' + this.state.id)
+      .delete('http://localhost:8082/api/founditems/' + this.state.id)
       .then(res => {
-        this.props.history.push('/')
+        this.props.history.push('/showlostitemlist')
       })
       .catch(err => {
         console.log('Error form ShowItemDetails_deleteClick:' + err.stack)
@@ -102,13 +103,14 @@ class ShowLostItemDetails extends Component {
           <div className = 'form-group' >
             <label htmlFor = "image" > Image </label>
             <input type = 'file' name = 'image' readOnly className = 'form-control' value = { this.state.image } />
+            <img width='200' height='200' src={ this.state.image }/>
           </div >
           <br />
 
           <br />
 
           <div className = 'form-group' >
-            <Link to = { `/edititem/${this.state.id}` } className = "btn btn-outline-info btn-lg btn-block" >Edit Item </Link>
+            <Link to = { `/editlostitem/${this.state.id}` } className = "btn btn-outline-info btn-lg btn-block" >Edit Item </Link>
             <div className = "row" >
               <div className = "col-md-12 m-auto" >
                 <button type = "button" className = "btn btn-outline-danger btn-lg btn-block" onClick = { this.onDeleteClick.bind(this, this.state.item.id) } > Delete Item </button>
@@ -126,7 +128,7 @@ class ShowLostItemDetails extends Component {
             <div className = "col-md-10 m-auto" >
               <br />
               <br />
-              <Link to = "/" className = "btn btn-outline-warning float-left" > Show Item List </Link>
+              <Link to = "/showlostitemlist" className = "btn btn-outline-warning float-left" > Show Lost Item List </Link>
             </div >
             <br />
             <div className = "col-md-8 m-auto" >

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import '../App.css'
+import moment from 'moment'
 
 class UpdateLostItemInfo extends Component {
   constructor (props) {
@@ -18,14 +19,15 @@ class UpdateLostItemInfo extends Component {
       keyword: '',
       comments: '',
       votes: ''
-
     }
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   componentDidMount () {
     // console.log("Print id: " + this.props.match.params.id);
     axios
-      .get('http://localhost:8082/api/lost-item/' + this.props.match.params.id)
+      .get('http://localhost:8082/api/lostitems/' + this.props.match.params.id)
       .then(res => {
         // this.setState({...this.state, item: res.data})
         this.setState({
@@ -33,7 +35,7 @@ class UpdateLostItemInfo extends Component {
           category: res.data.category,
           description: res.data.description,
           status: res.data.status,
-          timestamp: res.data.timestamp,
+          timestamp: moment(res.data.timestamp).format('YYYY-MM-DD'),
           location: res.data.location,
           image: res.data.image,
           keyword: res.data.keyword,
@@ -61,9 +63,9 @@ class UpdateLostItemInfo extends Component {
       category: this.state.category,
       description: this.state.description,
       status: this.state.status,
-      timestamp: this.state.timestamp
-      //    location: this.data.location,
-      //   image: this.data.image,
+      timestamp: this.state.timestamp,
+      location: this.state.location,
+      image: this.state.image
       // keyword: this.data.keyword,
       // comments: this.data.comments,
       // votes: this.data.votes
@@ -71,9 +73,9 @@ class UpdateLostItemInfo extends Component {
     }
 
     axios
-      .put('http://localhost:8082/api/update-lost-item/' + this.props.match.params.id, data)
+      .put('http://localhost:8082/api/lostitems/' + this.props.match.params.id, data)
       .then(res => {
-        this.props.history.push('/showlostitem/' + this.props.match.params.id)
+        this.props.history.push('/showlostitemlist')
       })
       .catch(err => {
         console.log('Error in UpdateLostItemInfo: ' + err.stack)
@@ -87,7 +89,7 @@ class UpdateLostItemInfo extends Component {
           <div className = "row" >
             <div className = "col-md-8 m-auto" >
               <br />
-              <Link to = "/" className = "btn btn-outline-warning float-left" > Show Item List </Link>
+              <Link to = "/showlostitemlist" className = "btn btn-outline-warning float-left" > Show Lost Item List </Link>
             </div >
             <div className = "col-md-8 m-auto" >
               <h1 className = "display-4 text-center" > Edit Item </h1>

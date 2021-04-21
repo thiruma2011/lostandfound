@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import '../App.css'
 import axios from 'axios'
 
-class CreateFoundItem extends Component {
+class CreateLostItem extends Component {
   constructor () {
     super()
     this.state = {
@@ -86,7 +86,7 @@ class CreateFoundItem extends Component {
     }
 
     axios
-      .post('http://localhost:8082/api/create-lost-item', data)
+      .post('http://localhost:8082/api/lostitems', data)
       .then(res => {
         this.setState({
           title: '',
@@ -98,7 +98,7 @@ class CreateFoundItem extends Component {
           image: '',
           comments: ''
         })
-        this.props.history.push('/')
+        this.props.history.push('/showlostitemlist')
       })
       .catch(err => {
         console.log('Error in CreateItem: ' + err.stack)
@@ -112,12 +112,12 @@ class CreateFoundItem extends Component {
           <div className = "row" >
             <div className = "col-md-8 m-auto" >
               <br />
-              <Link to = "/" className = "btn btn-warning float-left" >Show Item List </Link>
+              <Link to = "/showlostitemlist" className = "btn btn-warning float-left" >Show Lost Item List </Link>
             </div >
 
             <div className = "col-md-8 m-auto" >
-              <h1 className = "display-4 text-center" >Add Item </h1>
-              <p className = "lead text-center" >Create new item </p>
+              <h1 className = "display-4 text-center" >Add Lost Item </h1>
+              <p className = "lead text-center" >Create new lost item </p>
 
               <form noValidate onSubmit = { this.onSubmit } >
                 <div className = 'form-group' >
@@ -169,11 +169,11 @@ class CreateFoundItem extends Component {
   }
 }
 
-CreateFoundItem.propTypes = {
+CreateLostItem.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,
   match: PropTypes.any
 }
 
-export default CreateFoundItem
+export default CreateLostItem
