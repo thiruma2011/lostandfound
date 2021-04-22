@@ -35,6 +35,12 @@ import ShowLostItemsTable from './components/ShowLostItemsTable'
 // MY ITEM
 // import MyItemsList from './components/ShowFoundItemsTable'
 
+// User
+import ShowUserList from './components/ShowUserList'
+import ShowUserDetails from './components/ShowUserDetails'
+import CreateUser from './components/CreateUser'
+import UpdateUserInfo from './components/UpdateUserInfo'
+
 const App = () => (
   <div>
     <LFNav />
@@ -57,6 +63,11 @@ const App = () => (
       <Route exact path = "/createlostitem" component = { CreateLostItem } />
       <Route exact path = '/editlostitem/:id' component = { UpdateLostItemInfo } />
       <Route exact path = '/showlostitemstable' component = { ShowLostItemsTable } />
+
+      <Route exact path = "/showuserlist" component = { ShowUserList } />
+      <Route exact path = '/showuser/:id' component = { ShowUserDetails } />
+      <Route exact path = "/createuser" component = { CreateUser } />
+      <Route exact path = '/edituser/:id' component = { UpdateUserInfo } />
     </div >
   </div>
 )
