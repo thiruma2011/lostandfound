@@ -58,22 +58,27 @@ class UpdateLostItemInfo extends Component {
   onSubmit (e) {
     e.preventDefault()
 
-    const data = {
-      title: this.state.title,
-      category: this.state.category,
-      description: this.state.description,
-      status: this.state.status,
-      timestamp: this.state.timestamp,
-      location: this.state.location,
-      image: this.state.image
-      // keyword: this.data.keyword,
-      // comments: this.data.comments,
-      // votes: this.data.votes
+    // const data = {
+    //   title: this.state.title,
+    //   category: this.state.category,
+    //   description: this.state.description,
+    //   status: this.state.status,
+    //   timestamp: this.state.timestamp,
+    //   location: this.state.location,
+    //   image: this.state.image
+    //   // keyword: this.data.keyword,
+    //   // comments: this.data.comments,
+    //   // votes: this.data.votes
 
-    }
+    // }
 
     axios
-      .put('http://localhost:8082/api/update-lost-item/' + this.props.match.params.id, data)
+      .post('http://localhost:8082/api/update-lost-item/',
+        {
+          id: this.state.id,
+          lostItemInput: this.state
+        }
+      )
       .then(res => {
         this.props.history.push('/showlostitemlist')
       })

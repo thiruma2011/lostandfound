@@ -58,22 +58,27 @@ class UpdateFoundItemInfo extends Component {
   onSubmit (e) {
     e.preventDefault()
 
-    const data = {
-      title: this.state.title,
-      category: this.state.category,
-      description: this.state.description,
-      status: this.state.status,
-      timestamp: this.state.timestamp,
-      location: this.state.location,
-      images: this.state.images
-      // keyword: this.state.keyword,
-      // comments: this.state.comments,
-      // votes: this.state.votes
+    // const data = {
+    //   title: this.state.title,
+    //   category: this.state.category,
+    //   description: this.state.description,
+    //   status: this.state.status,
+    //   timestamp: this.state.timestamp,
+    //   location: this.state.location,
+    //   images: this.state.images
+    //   // keyword: this.state.keyword,
+    //   // comments: this.state.comments,
+    //   // votes: this.state.votes
 
-    }
+    // }
 
     axios
-      .put('http://localhost:8082/api/update-found-item/' + this.props.match.params.id, data)
+      .post('http://localhost:8082/api/update-found-item/',
+        {
+          id: this.state.id,
+          foundItemInput: this.state
+        }
+      )
       .then(res => {
         this.props.history.push('/showfounditemlist')
         // this.props.history.push('/showfounditem/' + this.props.match.params.id)
