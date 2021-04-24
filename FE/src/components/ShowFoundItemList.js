@@ -36,8 +36,15 @@ class ShowFoundItemList extends Component {
   };
 
   searchSpace=(event) => {
-    const keyword = event.target.value
-    this.setState({ search: keyword })
+    const searchkey = event.target.value.toString().toLowerCase()
+    var searchitems = this.state.items
+    if (searchkey != null) {
+      searchitems = searchitems.filter(function (item) {
+        return item.title.toString().toLowerCase().includes(searchkey)
+      })
+    }
+    this.setState({ mitems: searchitems })
+    this.setState({ pageNumber: 0 })
   }
 
   changePage = ({ selected }) => {
@@ -45,29 +52,15 @@ class ShowFoundItemList extends Component {
   }
 
   render () {
-    const items = this.state.items
-    let mitems
-    let searchkey = null
-    console.log('PrintItem: ' + items)
-    let itemList
-    if (this.state.search != null) {
-      searchkey = this.state.search.toString().toLowerCase()
-    }
-    if (!items) {
-      itemList = 'there is no item recored!'
-    } else if (searchkey == null) {
-      mitems = items
-    } else {
-      mitems = items.filter(function (item) {
-        return (item.title && item.title.toString().toLowerCase().includes(searchkey)) ||
-          (item.description && item.description.toString().toLowerCase().includes(searchkey)) ||
-          (item.category && item.category.toString().toLowerCase().includes(searchkey))
-      })
-    }
+    const mitems = this.state.mitems
+    // let searchkey = null
+    // console.log('PrintItem: ' + mitems)
+    // itemList
+
     const pageCount = Math.ceil(mitems.length / this.state.itemsPerPage)
     const mstart = this.state.pageNumber * this.state.itemsPerPage
     const mend = mstart + this.state.itemsPerPage
-    itemList = mitems
+    const itemList = mitems
       .slice(mstart, mend)
       .map((item, k) =>
                 <
@@ -96,7 +89,7 @@ class ShowFoundItemList extends Component {
         </div>
         </div>
         <div className = "list" > { itemList }
-           <br></br><div>
+        </div>   <br></br><div>
         <ReactPaginate
         previousLabel={'Previous'}
         nextLabel={'Next'}
@@ -108,11 +101,10 @@ class ShowFoundItemList extends Component {
         disabledClassName={'paginationDisabled'}
         activeClassName={'paginationActive'}
       /></div>
-      <h6> Number of Items {this.state.mitems.length} </h6>
+      <h6> Number of Items {mitems.length} </h6>
 
       </div>
         </div >
-      </div>
     )
   }
 }

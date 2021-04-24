@@ -95,7 +95,7 @@ class UpdateFoundItemInfo extends Component {
           <div className = "row" >
             <div className = "col-md-8 m-auto" >
               <br />
-              <Link to = "/" className = "btn btn-outline-warning float-left" > Show Item List </Link>
+              <Link to = "/showfounditemlist" className = "btn btn-outline-warning float-left" > Show Found Item List </Link>
             </div >
             <div className = "col-md-8 m-auto" >
               <h1 className = "display-4 text-center" > Edit Item </h1>

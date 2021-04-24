@@ -83,7 +83,7 @@ class ShowLostItemList extends Component {
         </div>
 
         <div className = "list" > { itemList } </div>
-        <h6> Number of Items {this.state.items.length} </h6>
+        <h6> Number of Items {mitems.length} </h6>
         </div >
       </div>
     )
