@@ -53,7 +53,7 @@ class ShowLostItemDetails extends Component {
 
   onDeleteClick (id) {
     axios
-      .delete('http://localhost:8082/api/delete-lost-item/' + this.state.id)
+      .post('http://localhost:8082/api/delete-lost-item/', { id: this.state.id })
       .then(res => {
         this.props.history.push('/showlostitemlist')
       })
