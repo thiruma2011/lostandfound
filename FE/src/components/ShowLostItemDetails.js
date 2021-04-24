@@ -28,7 +28,7 @@ class ShowLostItemDetails extends Component {
 
   componentDidMount () {
     axios
-      .get('http://localhost:8082/api/lost-item/' + this.props.match.params.id)
+      .get('http://localhost:8082/api/lostitems/' + this.props.match.params.id)
       .then(res => {
         // console.log("Print-showItemDetails-API-response: " + res.data);
         this.setState({

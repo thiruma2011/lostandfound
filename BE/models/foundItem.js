@@ -32,7 +32,7 @@ const foundItemSchema = new Schema({
 
   reportedBy: { type: Schema.Types.ObjectId, ref: 'User' },
   claimedBy: { type: Schema.Types.ObjectId, ref: 'User' },
-  matchedTo: { type: Schema.Types.ObjectId, ref: 'LostItem' }
+  matchedTo: { type: Schema.Types.ObjectId, ref: 'LostItem' } // array of lost items
 
 })
 

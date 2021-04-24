@@ -1,27 +1,25 @@
 import React, { Fragment } from 'react'
-import logo from '../../images/logo.gif'
+import logo from '../../images/main-logo.png'
+import '../../App.css'
 
 const AboutPage = () => (
   <Fragment >
+    <div className="cont-within-cont">
+      <div className='logo-cont' >
+        <img className='logo-main' src={logo} alt="cur"></img>
+      </div >
+    </div>
+
+    <h1 align="center" > Help me lah! </h1>
     <div >
-      <p align = "center" >
-        <img src = { logo } alt = "cur" align = "center" height = { 200 } width = { 200 } ></img>
-      </p >
+      <h3 align="center" >
+        A community portal connecting residents of Singapore together
+      </h3>
     </div >
-    <h1 align = "center" > Welcome to helpmelah.com </h1>
-    <p > </p>
-    <p > </p>
-    <p > </p>
+    <p align="center">  </p>
 
     <div >
-      <h2 align = "center" >
-        Connecting residents of Singapore Help one another as a community Portal for Lost and Found Items
-      </h2>
-    </div >
-    <p > </p>
-
-    <div >
-      <h6 align = "center" > An intiative by NUS - ISS MTech 2021 - Team 8 students </h6>
+      <h6 align="center" > An intiative by NUS-ISS MTech SE 2021 - Team 8 students </h6>
     </div >
 
   </Fragment>
