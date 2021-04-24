@@ -14,7 +14,7 @@ class ShowLostItemsTable extends Component {
 
   componentDidMount () {
     axios
-      .get('http://localhost:8082/api/lostitems')
+      .get('http://localhost:8082/api/lost-items')
       .then(res => {
         this.setState({
           items: res.data

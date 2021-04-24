@@ -10,9 +10,9 @@ const LostItemCard = (props) => {
   const item = props.item
   return (
     <div className = "card mb-4" >
-      <img src = {item.images} alt = "" />
+      <img src = {item.images[0]} alt = "" />
       <div className = "card-body" >
-        <h4><Link to = { `/showlostitem/${item._id}` } > { item.title } </Link> </h4>
+        <h4><Link to = { `/showlostitem/${item.id}` } > { item.title } </Link> </h4>
         <p> { item.description } </p>
         <p> { item.status } </p>
         <p> { item.timestamp } </p>
@@ -24,12 +24,12 @@ const LostItemCard = (props) => {
 
 LostItemCard.propTypes = {
   item: PropTypes.shape({
-    _id: PropTypes.string,
+    id: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
     status: PropTypes.string,
     timestamp: PropTypes.timestamp,
-    images: PropTypes.string
+    images: PropTypes.any
   }).isRequired
 }
 

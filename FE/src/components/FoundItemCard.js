@@ -15,7 +15,7 @@ const FoundItemCard = (props) => {
     <Card style={{ width: '18rem' }}>
     <Card.Img variant="top" src= { item.images } />
     <Card.Body>
-    <Card.Title> <h4><Link to = { `/showfounditem/${item._id}` } > { item.title } </Link> </h4> </Card.Title>
+    <Card.Title> <h4><Link to = { `/showfounditem/${item.id}` } > { item.title } </Link> </h4> </Card.Title>
     <Card.Text>
     {item.description}
     </Card.Text>
@@ -29,10 +29,10 @@ const FoundItemCard = (props) => {
 
 FoundItemCard.propTypes = {
   item: PropTypes.shape({
-    _id: PropTypes.string,
+    id: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
-    images: PropTypes.string,
+    images: PropTypes.any,
     status: PropTypes.string,
     timestamp: PropTypes.timestamp
   }).isRequired

@@ -27,7 +27,7 @@ class UpdateFoundItemInfo extends Component {
   componentDidMount () {
     // console.log("Print id: " + this.props.match.params.id);
     axios
-      .get('http://localhost:8082/api/founditems/' + this.props.match.params.id)
+      .get('http://localhost:8082/api/found-item/' + this.props.match.params.id)
       .then(res => {
         // this.setState({...this.state, item: res.data})
         this.setState({
@@ -73,7 +73,7 @@ class UpdateFoundItemInfo extends Component {
     }
 
     axios
-      .put('http://localhost:8082/api/founditems/' + this.props.match.params.id, data)
+      .put('http://localhost:8082/api/update-found-item/' + this.props.match.params.id, data)
       .then(res => {
         this.props.history.push('/showfounditemlist')
         // this.props.history.push('/showfounditem/' + this.props.match.params.id)

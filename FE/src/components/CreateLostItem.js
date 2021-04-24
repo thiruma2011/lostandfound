@@ -7,16 +7,7 @@ import axios from 'axios'
 class CreateLostItem extends Component {
   constructor () {
     super()
-    this.state = {
-      title: '',
-      category: '',
-      description: '',
-      status: '',
-      timestamp: '',
-      location: '',
-      image: '',
-      comments: ''
-    }
+    this.state = {}
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
@@ -76,28 +67,10 @@ class CreateLostItem extends Component {
   onSubmit (e) {
     e.preventDefault()
 
-    const data = {
-      title: this.state.title,
-      category: this.state.category,
-      description: this.state.description,
-      status: this.state.status,
-      timestamp: this.state.timestamp
-
-    }
-
     axios
-      .post('http://localhost:8082/api/lostitems', data)
+      .post('http://localhost:8082/api/create-lost-item', { lostItemInput: this.state })
       .then(res => {
-        this.setState({
-          title: '',
-          category: '',
-          description: '',
-          status: '',
-          timestamp: '',
-          location: '',
-          image: '',
-          comments: ''
-        })
+        this.setState({})
         this.props.history.push('/showlostitemlist')
       })
       .catch(err => {

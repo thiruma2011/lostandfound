@@ -23,7 +23,7 @@ class ShowFoundItemList extends Component {
 
   componentDidMount () {
     axios
-      .get('http://localhost:8082/api/founditems')
+      .get('http://localhost:8082/api/found-items')
       .then(res => {
         this.setState({
           items: res.data,
@@ -36,17 +36,8 @@ class ShowFoundItemList extends Component {
   };
 
   searchSpace=(event) => {
-    const searchkey = event.target.value.toString().toLowerCase()
-    if (!this.state.items) {
-      // itemList = 'there is no item recored!'
-    } else if (searchkey == null) {
-      // this.setState({ mitems: myitems })
-    } else {
-      this.state.mitems.filter(function (item) {
-        return item.title.toString().toLowerCase().includes(searchkey) || item.description.toString().toLowerCase().includes(searchkey) || item.category.toString().toLowerCase().includes(searchkey)
-      })
-    }
-    // this.setState({ search: keyword })
+    const keyword = event.target.value
+    this.setState({ search: keyword })
   }
 
   changePage = ({ selected }) => {
@@ -54,26 +45,35 @@ class ShowFoundItemList extends Component {
   }
 
   render () {
-    var myitems = this.state.mitems
-    const pageCount = Math.ceil(myitems.length / this.state.itemsPerPage)
+    const items = this.state.items
+    let mitems
+    let searchkey = null
+    console.log('PrintItem: ' + items)
+    let itemList
+    if (this.state.search != null) {
+      searchkey = this.state.search.toString().toLowerCase()
+    }
+    if (!items) {
+      itemList = 'there is no item recored!'
+    } else if (searchkey == null) {
+      mitems = items
+    } else {
+      mitems = items.filter(function (item) {
+        return (item.title && item.title.toString().toLowerCase().includes(searchkey)) ||
+          (item.description && item.description.toString().toLowerCase().includes(searchkey)) ||
+          (item.category && item.category.toString().toLowerCase().includes(searchkey))
+      })
+    }
+    const pageCount = Math.ceil(mitems.length / this.state.itemsPerPage)
     const mstart = this.state.pageNumber * this.state.itemsPerPage
-    const mend = this.state.itemsPerPage
-    console.log('hi 1')
-    console.log(this.state.pageNumber)
-    console.log(myitems.length)
-    console.log(pageCount)
-    console.log(this.state.itemsPerPage)
-    console.log(mstart)
-    console.log(mend)
-    console.log('hi 2')
-    // let itemList
-    const itemList = myitems
+    const mend = mstart + this.state.itemsPerPage
+    itemList = mitems
       .slice(mstart, mend)
       .map((item, k) =>
-        <
-        FoundItemCard item = { item }
-        key = { k }
-         />
+                <
+                FoundItemCard item = { item }
+                key = { k }
+                />
       )
 
     return (

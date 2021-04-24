@@ -31,11 +31,11 @@ class ShowFoundItemDetails extends Component {
   componentDidMount () {
     // const timestamp1 =`` new Date()
     axios
-      .get('http://localhost:8082/api/founditems/' + this.props.match.params.id)
+      .get('http://localhost:8082/api/found-item/' + this.props.match.params.id)
       .then(res => {
         // console.log("Print-showItemDetails-API-response: " + res.data);
         this.setState({
-          id: res.data._id,
+          id: res.data.id,
           title: res.data.title,
           category: res.data.category,
           description: res.data.description,
@@ -55,7 +55,7 @@ class ShowFoundItemDetails extends Component {
 
   onDeleteClick (id) {
     axios
-      .delete('http://localhost:8082/api/founditems/' + this.state.id)
+      .delete('http://localhost:8082/api/delete-found-item/' + this.state.id)
       .then(res => {
         this.props.history.push('/showfounditemlist')
       })

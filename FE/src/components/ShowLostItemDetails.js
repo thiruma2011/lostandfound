@@ -29,11 +29,11 @@ class ShowLostItemDetails extends Component {
 
   componentDidMount () {
     axios
-      .get('http://localhost:8082/api/lostitems/' + this.props.match.params.id)
+      .get('http://localhost:8082/api/lost-item/' + this.props.match.params.id)
       .then(res => {
         // console.log("Print-showItemDetails-API-response: " + res.data);
         this.setState({
-          id: res.data._id,
+          id: res.data.id,
           title: res.data.title,
           category: res.data.category,
           description: res.data.description,
@@ -53,7 +53,7 @@ class ShowLostItemDetails extends Component {
 
   onDeleteClick (id) {
     axios
-      .delete('http://localhost:8082/api/founditems/' + this.state.id)
+      .delete('http://localhost:8082/api/delete-lost-item/' + this.state.id)
       .then(res => {
         this.props.history.push('/showlostitemlist')
       })

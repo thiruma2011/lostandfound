@@ -10,7 +10,7 @@ const LostItemsTable = (props) => {
   const item = props.item
   return (
     <tr>
-    <td> <Link to = { `/showlostitem/${item._id}` } > { item.title } </Link>
+    <td> <Link to = { `/showlostitem/${item.id}` } > { item.title } </Link>
     </td>
     <td> { item.category } </td>
     <td> { item.timestamp } </td>
@@ -21,7 +21,7 @@ const LostItemsTable = (props) => {
 
 LostItemsTable.propTypes = {
   item: PropTypes.shape({
-    _id: PropTypes.string,
+    id: PropTypes.string,
     title: PropTypes.string,
     category: PropTypes.string,
     description: PropTypes.string,

@@ -13,7 +13,7 @@ class ShowFoundItemsTable extends Component {
 
   componentDidMount () {
     axios
-      .get('http://localhost:8082/api/founditems')
+      .get('http://localhost:8082/api/found-items')
       .then(res => {
         this.setState({
           items: res.data

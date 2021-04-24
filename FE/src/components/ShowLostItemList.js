@@ -16,7 +16,7 @@ class ShowLostItemList extends Component {
 
   componentDidMount () {
     axios
-      .get('http://localhost:8082/api/lostitems')
+      .get('http://localhost:8082/api/lost-items')
       .then(res => {
         this.setState({
           items: res.data
@@ -35,7 +35,8 @@ class ShowLostItemList extends Component {
 
   render () {
     const items = this.state.items
-    var searchkey = null
+    let mitems
+    let searchkey = null
     console.log('PrintItem: ' + items)
     let itemList
     if (this.state.search != null) {
@@ -44,10 +45,12 @@ class ShowLostItemList extends Component {
     if (!items) {
       itemList = 'there is no item recored!'
     } else if (searchkey == null) {
-      var mitems = items
+      mitems = items
     } else {
       mitems = items.filter(function (item) {
-        return item.title.toString().toLowerCase().includes(searchkey) || item.description.toString().toLowerCase().includes(searchkey) || item.category.toString().toLowerCase().includes(searchkey)
+        return (item.title && item.title.toString().toLowerCase().includes(searchkey)) ||
+          (item.description && item.description.toString().toLowerCase().includes(searchkey)) ||
+          (item.category && item.category.toString().toLowerCase().includes(searchkey))
       })
     }
     itemList = mitems.map((item, k) =>
