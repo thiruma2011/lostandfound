@@ -13,7 +13,7 @@ const userSchema = new Schema({
   gender: String,
 
   contactnos: [String],
-  email: String,
+  emails: [String],
   addresses: [{
     line1: String,
     line2: String,

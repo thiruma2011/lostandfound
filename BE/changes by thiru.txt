@@ -1,0 +1,3 @@
+1. server.js
+2. db.js
+3. routes/api folder

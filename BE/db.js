@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
-const config = require('config')
-const db = config.get('mongoURI')
-
+// const config = require('config')
+// const db = config.get('mongoURI')
+const db = 'mongodb://localhost:27017/db01'
+// const db = 'mongodb+srv://dbuser:P%40ssw0rd@cluster1.ebiee.mongodb.net/db01?retryWrites=true&w=majority'
 const connectDB = async () => {
   try {
     await mongoose.connect(

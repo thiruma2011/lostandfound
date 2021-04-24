@@ -1,0 +1,24 @@
+input LostItemInput {
+    title: String
+
+    description: String
+    category: [String]
+    status: LNFStatus
+
+    timestamp: DateTime
+    location: LocationInput
+    image: [ImageInput]
+    keyword: [String]
+
+    comments: [CommentInput]
+    votes: [VoteInput]
+
+    reportedBy: UserInput
+    matchedTo: FoundItemInput
+}
+
+type Mutation {
+    createLostItem(lostItemInput: LostItemInput): LostItem
+    updateLostItem(id: ID!, lostItemInput: LostItemInput): LostItem
+    deleteLostItem(id: ID!): LostItem
+}

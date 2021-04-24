@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken')
 // https://faizanv.medium.com/authentication-for-your-react-and-express-application-w-json-web-tokens-923515826e0#4010
 
 // Load User  model
@@ -85,18 +85,17 @@ router.post('/', (req, res) => {
 
 router.post('/:login', (req, res) => {
   const { email, password } = req.body
-
-  console.log('login 1')
+  console.log('user login 1')
 
   //   console.log(req.query);
-  User.findOne({ email: (req.query.username) }, function (err, user) {
+  User.findOne({ email: (req.body.email) }, function (err, user) {
     if (!user) {
       console.log(' user login 3')
       res.status(401)
         .json({
           error: 'Incorrect email or password'
         })
-    } else if (password = user.password) {
+    } else if (password == user.password) {
       console.log(' user login 4')
       console.log(user.password)
       console.log(password)
@@ -104,11 +103,17 @@ router.post('/:login', (req, res) => {
       // Issue token
       console.log(' user login 7')
       const payload = { email }
-      const token = jwt.sign(payload, secret, {
-        expiresIn: '1h'
-      })
-      res.cookie('token', token, { httpOnly: true })
-        .sendStatus(200)
+      console.log(' user login 7A')
+      // const token = jwt.sign(payload, secret, {
+      //  expiresIn: '1h'
+      // })
+      const token = email
+      console.log(' user login 7B')
+      res.status(200)
+        .json({
+          token: token,
+          username: user.username
+        })
     } else {
       console.log(' user login 6')
       res.status(401)
