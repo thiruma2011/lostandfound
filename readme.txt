@@ -1,32 +1,31 @@
-1	Create Item	
-		Category drop-down, Date, Image		
-		Add Location		
-2	View Item	
-		Category drop-down, Date, Image		
+1	Create Found Item	
+		Category drop-down, 
+		Status dropdown
+		Image		
+		Location
+		Required fields validation
+2	View Found Item	
+		Image		
 		Display Location		
-3	Edit Item	
-		Category drop-down, Date, Image		
-		Edit Location		
-4	Smartness	
+3	Edit Found Item	
+		Category drop-down
+		Status dropdown
+		Image		
+		Location
+		Required Fields validaiton
+4	Create Lost Item (follow create found item after all the issue fixed)
+5. 	view lost item (follow view found item after all the issue fixed)
+6. 	edit lost item (follow edit found item after all the issue fixed)
+7 	Smartness	
 		Display Matching Items		
-5	Card View	
-		Filter Option		
-		Pagination		
-		Sorting		
-		View Items Details (Button/Link)		
-6	Table View	
-		Filter Option		
-		Pagination		
-		Sorting		
-		View Items Details (Button/Link)		
-7	Authentication	Login		
+8	Authentication	Login		
 		Display User Name in Nav Bar		
 		Logout		
-8	Authorization	
+9	Authorization	
 		Role Based Access control		
-9	Landing Page	
+10.	Landing Page	
 		Finalalize and cleanup Homepage		
-10	Statis Pages	
+11	Statis Pages	
 		FAQ, Contact, About		
-11	Map view (optional)	
+12	Map view (optional)	
 		Items in Map view ???		
