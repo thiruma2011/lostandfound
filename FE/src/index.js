@@ -17,6 +17,7 @@ import Contact from './pages/Contact/ContactPage'
 import FAQ from './pages/FAQ/FAQPage'
 import Login from './pages/Login/LoginPage'
 import Signup from './pages/Signup/SignupPage'
+import Logout from './pages/Login/LogoutPage'
 
 // FOUND ITEM
 import ShowFoundItemList from './components/ShowFoundItemList'
@@ -51,6 +52,7 @@ const App = () => (
       <Route exact path = "/faq" component = { FAQ } />
       <Route exact path = "/login" component = { Login } />
       <Route exact path = "/signup" component = { Signup } />
+      <Route exact path = "/logout" component = { Logout } />
 
       <Route exact path = "/showfounditemlist" component = { ShowFoundItemList } />
       <Route exact path = '/showfounditem/:id' component = { ShowFoundItemDetails } />
