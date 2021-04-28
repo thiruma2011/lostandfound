@@ -28,11 +28,11 @@ class ShowFoundItemDetails extends Component {
 
   componentDidMount () {
     axios
-      .get('http://localhost:8082/api/found-item/' + this.props.match.params.id)
+      .get('http://localhost:8082/api/founditem/' + this.props.match.params.id)
       .then(res => {
         // console.log("Print-showItemDetails-API-response: " + res.data);
         this.setState({
-          id: res.data._id,
+          id: res.data.id,
           title: res.data.title,
           category: res.data.category,
           description: res.data.description,
@@ -111,7 +111,7 @@ class ShowFoundItemDetails extends Component {
             <Link to = { `/editfounditem/${this.state.id}` } className = "btn btn-outline-info btn-lg btn-block" >Edit Item </Link>
             <div className = "row" >
               <div className = "col-md-12 m-auto" >
-                <button type = "button" className = "btn btn-outline-danger btn-lg btn-block" onClick = { this.onDeleteClick.bind(this, this.state.item._id) } > Delete Item </button>
+                <button type = "button" className = "btn btn-outline-danger btn-lg btn-block" onClick = { this.onDeleteClick.bind(this, this.state.item.id) } > Delete Item </button>
               </div>
             </div>
           </div>

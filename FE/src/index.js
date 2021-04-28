@@ -9,6 +9,7 @@ import './styles/bootstrap.min.css'
 
 // NAVIGATION
 import LFNav from './components/LFNav'
+import Cards from './components/Cards'
 
 // PAGES
 import Home from './pages/Home/HomePage'
@@ -29,6 +30,7 @@ import ShowLostItemList from './components/ShowLostItemList'
 import ShowLostItemDetails from './components/ShowLostItemDetails'
 import CreateLostItem from './components/CreateLostItem'
 import UpdateLostItemInfo from './components/UpdateLostItemInfo'
+import LostItemDetails from './components/LostItemDetails'
 
 const App = () => (
   <div>
@@ -50,6 +52,8 @@ const App = () => (
       <Route exact path = '/showlostitem/:id' component = { ShowLostItemDetails } />
       <Route exact path = "/createlostitem" component = { CreateLostItem } />
       <Route exact path = '/editlostitem/:id' component = { UpdateLostItemInfo } />
+      <Route exact path = '/lostitemdetails' component = { LostItemDetails } />
+      <Route exact path = '/Cards' component = { Cards } />
     </div >
   </div>
 )

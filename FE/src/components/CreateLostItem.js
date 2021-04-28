@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import '../App.css'
 import axios from 'axios'
 
-class CreateFoundItem extends Component {
+class CreateLostItem extends Component {
   constructor () {
     super()
     this.state = {
@@ -86,7 +86,7 @@ class CreateFoundItem extends Component {
     }
 
     axios
-      .post('http://localhost:8082/api/lost-item', data)
+      .post('http://localhost:8082/api/create-lost-item', data)
       .then(res => {
         this.setState({
           title: '',
@@ -101,7 +101,7 @@ class CreateFoundItem extends Component {
         this.props.history.push('/')
       })
       .catch(err => {
-        console.log('Error in CreateItem: ' + err.stack)
+        console.log('Error in CreateLostItem: ' + err.stack)
       })
   };
 
@@ -169,11 +169,11 @@ class CreateFoundItem extends Component {
   }
 }
 
-CreateFoundItem.propTypes = {
+CreateLostItem.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,
   match: PropTypes.any
 }
 
-export default CreateFoundItem
+export default CreateLostItem

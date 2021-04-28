@@ -5,7 +5,10 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import LostItemCard from './LostItemCard'
 
-class ShowLostItemList extends Component {
+// This is for recommendation engine testing
+// Testing for recommending several founditems that matches to a lostitem
+
+class LostItemDetails extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -23,7 +26,7 @@ class ShowLostItemList extends Component {
         })
       })
       .catch(err => {
-        console.log('Error from ShowLostItemList: ' + err.stack)
+        console.log('Error from LostItemDetails: ' + err.stack)
       })
   };
 
@@ -50,7 +53,7 @@ class ShowLostItemList extends Component {
           <div className = "row" >
             <div className = "col-md-12" >
               <br />
-              <h2 className = "display-4 text-center" > Lost Items List </h2>
+              <h2 className = "display-4 text-center" > Recommendations </h2>
             </div>
 
             <div className = "col-md-11" >
@@ -68,4 +71,4 @@ class ShowLostItemList extends Component {
   }
 }
 
-export default ShowLostItemList
+export default LostItemDetails

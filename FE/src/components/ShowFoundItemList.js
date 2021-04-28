@@ -15,7 +15,7 @@ class ShowFoundItemList extends Component {
 
   componentDidMount () {
     axios
-      .get('http://localhost:8082/api/found-items')
+      .get('http://localhost:8082/api/founditems')
       .then(res => {
         this.setState({
           items: res.data
@@ -50,7 +50,7 @@ class ShowFoundItemList extends Component {
           <div className = "row" >
             <div className = "col-md-12" >
               <br />
-              <h2 className = "display-4 text-center" > Items List </h2>
+              <h2 className = "display-4 text-center" > Found Items List </h2>
             </div>
 
             <div className = "col-md-11" >
