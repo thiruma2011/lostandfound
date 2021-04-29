@@ -10,6 +10,8 @@ export default class SignUp extends Component {
       email: '',
       password: ''
     }
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   onChange (e) {
@@ -28,7 +30,7 @@ export default class SignUp extends Component {
     }
 
     axios
-      .post('http://localhost:8082/api/create-user', data)
+      .post('http://localhost:8082/api/users', data)
       .then(res => {
         this.setState({
           username: '',

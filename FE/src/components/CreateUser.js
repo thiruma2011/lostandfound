@@ -4,10 +4,19 @@ import { Link } from 'react-router-dom'
 import '../App.css'
 import axios from 'axios'
 
-class CreateLostItem extends Component {
+class CreateUser extends Component {
   constructor () {
     super()
-    this.state = {}
+    this.state = {
+      title: '',
+      category: '',
+      description: '',
+      status: '',
+      timestamp: '',
+      location: '',
+      image: '',
+      comments: ''
+    }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
@@ -67,14 +76,33 @@ class CreateLostItem extends Component {
   onSubmit (e) {
     e.preventDefault()
 
+    const data = {
+      title: this.state.title,
+      category: this.state.category,
+      description: this.state.description,
+      status: this.state.status,
+      timestamp: this.state.timestamp
+    }
+
     axios
-      .post('http://localhost:8082/api/create-lost-item', { lostItemInput: this.state })
+      .post('http://localhost:8082/api/create-found-item',
+        { foundItemInput: { data } }
+      )
       .then(res => {
-        this.setState({})
-        this.props.history.push('/showlostitemlist')
+        this.setState({
+          title: '',
+          category: '',
+          description: '',
+          status: '',
+          timestamp: '',
+          location: '',
+          image: '',
+          comments: ''
+        })
+        this.props.history.push('/')
       })
       .catch(err => {
-        console.log('Error in CreateLostItem: ' + err.stack)
+        console.log('Error in CreateItem: ' + err.stack)
       })
   };
 
@@ -85,12 +113,12 @@ class CreateLostItem extends Component {
           <div className = "row" >
             <div className = "col-md-8 m-auto" >
               <br />
-              <Link to = "/showlostitemlist" className = "btn btn-warning float-left" >Show Lost Item List </Link>
+              <Link to = "/" className = "btn btn-warning float-left" >Show Item List </Link>
             </div >
 
             <div className = "col-md-8 m-auto" >
-              <h1 className = "display-4 text-center" >Add Lost Item </h1>
-              <p className = "lead text-center" >Create new lost item </p>
+              <h1 className = "display-4 text-center" >Add Item </h1>
+              <p className = "lead text-center" >Create new item </p>
 
               <form noValidate onSubmit = { this.onSubmit } >
                 <div className = 'form-group' >
@@ -142,11 +170,11 @@ class CreateLostItem extends Component {
   }
 }
 
-CreateLostItem.propTypes = {
+CreateUser.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,
   match: PropTypes.any
 }
 
-export default CreateLostItem
+export default CreateUser
